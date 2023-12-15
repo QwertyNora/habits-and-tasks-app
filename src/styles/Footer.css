@@ -1,3 +1,18 @@
+.container {
+  max-width: 1170px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+}
+
 .footer {
   background-color: whitesmoke;
   padding: 30px 0;
