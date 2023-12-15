@@ -1,12 +1,13 @@
 import React from "react";
+import "../styles/Footer.css";
 
 const Footer = () => {
   return (
     <div>
-      <footer class="footer">
-        <div class="container">
-          <div class="row">
-            <div class="footer-col">
+      <footer className="footer">
+        <div className="container">
+          <div className="row">
+            <div className="footer-col">
               <h3>Habit & Tasks</h3>
               <ul>
                 <li>
@@ -20,7 +21,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div class="footer-col">
+            <div className="footer-col">
               <h3>Customer Service</h3>
               <ul>
                 <li>
@@ -35,9 +36,9 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div class="footer-col">
+            <div className="footer-col">
               <h3>Follow us</h3>
-              <div class="social-links">
+              <div className="social-links">
                 <ul>
                   <li>
                     <a href="">Github</a>
