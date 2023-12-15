@@ -1,8 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Nav from "../components/Nav";
 
 const Friends = () => {
-  return <div>Friends</div>;
+  return (
+    <>
+      <Nav />
+      <h1>Friends</h1>
+    </>
+  );
 };
 
 export default Friends;

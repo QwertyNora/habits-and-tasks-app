@@ -1,8 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Nav from "../components/Nav";
 
 const NewTask = () => {
-  return <div>NewTask</div>;
+  return (
+    <>
+      <Nav />
+      <h1>New Task</h1>
+    </>
+  );
 };
 
 export default NewTask;
