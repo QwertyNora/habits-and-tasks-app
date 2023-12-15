@@ -1,8 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Nav from "../components/Nav";
 
 const Tasks = () => {
-  return <div>Tasks</div>;
+  return (
+    <>
+      <Nav />
+      <h1>Tasks</h1>
+    </>
+  );
 };
 
 export default Tasks;

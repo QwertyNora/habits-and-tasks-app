@@ -1,8 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Nav from "../components/Nav";
 
 const Habits = () => {
-  return <div>Habits</div>;
+  return (
+    <>
+      <Nav />
+      <h1>Habits</h1>
+    </>
+  );
 };
 
 export default Habits;
