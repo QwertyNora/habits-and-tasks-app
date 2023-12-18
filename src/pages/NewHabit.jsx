@@ -13,6 +13,12 @@ const NewHabit = () => {
   const location = useLocation();
   let params = useParams();
 
+  const resetForm = () => {
+    setTitle(null);
+    setStreak(null);
+    setPriority(null);
+  };
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
@@ -22,10 +28,7 @@ const NewHabit = () => {
     }
 
     setHabits([...habits, { title, streak, priority }]);
-
-    setTitle(null);
-    setStreak(null);
-    setPriority(null);
+    resetForm();
     
   };
   return (
