@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Habits from "./Habits";
+import { useLocation, useParams } from "react-router-dom";
 
 const NewHabit = () => {
   const [title, setTitle] = useState(null);
   const [streak, setStreak] = useState(null);
   const [priority, setPriority] = useState(null);
   const [habits, setHabits] = useState([]);
+
+  const location = useLocation();
+  let params = useParams();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
