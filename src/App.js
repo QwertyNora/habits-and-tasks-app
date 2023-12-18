@@ -10,9 +10,10 @@ import Friends from "./pages/Friends";
 import { useState } from "react";
 
 function App() {
+  // Byter statet t app så data sparas(Victor)
   const [tasks, setTasks] = useState([]);
 
-  // Funktion för att lägga till en ny uppgift
+  // Adding new task
   const addTask = (newTask) => {
     setTasks([...tasks, newTask]);
   };

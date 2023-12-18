@@ -9,11 +9,11 @@ const Tasks = ({ tasks, addTask }) => {
     <>
       <Nav />
       <h1>Tasks</h1>
-      <ul>
-        {tasks.map((task) => (
-          <li key={task.title}>{task.title}</li>
-        ))}
-      </ul>
+
+      {tasks.map((task) => (
+        <h3 key={task.title}>{task.title}</h3>
+      ))}
+
       <NewTask addTask={addTask} />
       <Footer />
     </>
