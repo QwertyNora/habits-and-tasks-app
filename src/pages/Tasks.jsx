@@ -1,24 +1,17 @@
-// Tasks.js
-import React, { useState } from "react";
+// Tasks.jsx
+import React from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import NewTask from "./NewTask";
 
-const Tasks = () => {
-  const [tasks, setTasks] = useState([]);
-
-  const addTask = (newTask) => {
-    setTasks([...tasks, newTask]);
-  };
-
+const Tasks = ({ tasks, addTask }) => {
   return (
     <>
       <Nav />
-
       <h1>Tasks</h1>
       <ul>
         {tasks.map((task) => (
-          <li>{task.title}</li>
+          <li key={task.title}>{task.title}</li>
         ))}
       </ul>
       <NewTask addTask={addTask} />
