@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { setInLocalStorage, getFromLocalStorage } from "../HelperFunctions";
+import { Link } from "react-router-dom";
 
 const NewHabit = () => {
   const [title, setTitle] = useState(null);
@@ -27,15 +28,14 @@ const NewHabit = () => {
     e.preventDefault();
 
     if (!title || !streak || !priority) {
-      alert("Please fill in all required fields.");
+      alert("Please fill in all fields.");
       return;
     }
 
     const newHabit = { title, streak, priority };
-    // setNewHabit({ title, streak, priority });
+
     const updatedHabits = [...habits, newHabit];
 
-    // Save updated habits to local storage
     setInLocalStorage("habits", updatedHabits);
 
     // Update state to trigger re-render
@@ -94,6 +94,7 @@ const NewHabit = () => {
           <p>Priority: {habits[habits.length - 1].priority}</p>
         </div>
       )}
+      <Link to="/Habits"><button>Show All Habits</button></Link>
       <Footer />
     </>
   );
