@@ -1,3 +1,4 @@
+// App.js
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
@@ -6,8 +7,20 @@ import NewHabit from "./pages/NewHabit";
 import Tasks from "./pages/Tasks";
 import NewTask from "./pages/NewTask";
 import Friends from "./pages/Friends";
+import { useState } from "react";
 
 function App() {
+  // Byter statet t app så data sparas(Victor)
+  // const [tasks, setTasks] = useState([]);
+
+  // Adding new task
+  // const addTask = (newTask) => {
+  //   setTasks([...tasks, newTask]);
+  // };
+
+  // tasks={tasks} addTask={addTask}
+  // addTask={addTask}
+
   return (
     <div className="App">
       <Routes>
