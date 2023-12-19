@@ -11,12 +11,15 @@ import { useState } from "react";
 
 function App() {
   // Byter statet t app så data sparas(Victor)
-  const [tasks, setTasks] = useState([]);
+  // const [tasks, setTasks] = useState([]);
 
   // Adding new task
-  const addTask = (newTask) => {
-    setTasks([...tasks, newTask]);
-  };
+  // const addTask = (newTask) => {
+  //   setTasks([...tasks, newTask]);
+  // };
+
+  // tasks={tasks} addTask={addTask}
+  // addTask={addTask}
 
   return (
     <div className="App">
@@ -24,11 +27,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/habits" element={<Habits />} />
         <Route path="/newhabit" element={<NewHabit />} />
-        <Route
-          path="/tasks"
-          element={<Tasks tasks={tasks} addTask={addTask} />}
-        />
-        <Route path="/newtask" element={<NewTask addTask={addTask} />} />
+        <Route path="/tasks" element={<Tasks />} />
+        <Route path="/newtask" element={<NewTask />} />
         <Route path="/friends" element={<Friends />} />
       </Routes>
     </div>
