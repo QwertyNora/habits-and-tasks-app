@@ -1,27 +1,26 @@
 import React, { useEffect, useState } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
-import Habits from "./Habits";
-import { useLocation, useParams } from "react-router-dom";
+import { setInLocalStorage, getFromLocalStorage } from "../HelperFunctions";
 
 const NewHabit = () => {
   const [title, setTitle] = useState(null);
   const [streak, setStreak] = useState(null);
   const [priority, setPriority] = useState(null);
   const [habits, setHabits] = useState([]);
-
-  // const location = useLocation();
-  // let params = useParams();
+  const [showRecentHabit, setShowRecentHabit] = useState(false);
 
   useEffect(() => {
-    // storing input name
-    localStorage.setItem("habits", JSON.stringify(habits));
-  }, [habits]);
+    const storedHabits = getFromLocalStorage("habits");
+    if (storedHabits) {
+      setHabits(storedHabits);
+    }
+  }, []);
 
   const resetForm = () => {
-    setTitle(null);
-    setStreak(null);
-    setPriority(null);
+    setTitle("");
+    setStreak(0);
+    setPriority("");
   };
 
   const handleFormSubmit = (e) => {
@@ -32,7 +31,17 @@ const NewHabit = () => {
       return;
     }
 
-    setHabits([...habits, { title, streak, priority }]);
+    const newHabit = { title, streak, priority };
+    // setNewHabit({ title, streak, priority });
+    const updatedHabits = [...habits, newHabit];
+
+    // Save updated habits to local storage
+    setInLocalStorage("habits", updatedHabits);
+
+    // Update state to trigger re-render
+    setHabits(updatedHabits);
+    setShowRecentHabit(!showRecentHabit);
+
     resetForm();
   };
   return (
@@ -78,20 +87,13 @@ const NewHabit = () => {
         <button type="submit">Create Habit</button>
       </form>
 
-      <div>
-        {habits &&
-          habits.map((habit) => {
-            return (
-              <>
-                <p>{habit.title}</p>
-                <p>Streak: {habit.streak}</p>
-                <p>Priority: {habit.priority}</p>
-              </>
-            );
-          })}
-      </div>
-
-      {/* <Habits habits={habits} /> */}
+      {showRecentHabit && (
+        <div>
+          <p>{habits[habits.length - 1].title}</p>
+          <p>Streak: {habits[habits.length - 1].streak}</p>
+          <p>Priority: {habits[habits.length - 1].priority}</p>
+        </div>
+      )}
       <Footer />
     </>
   );
