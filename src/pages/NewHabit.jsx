@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Habits from "./Habits";
@@ -10,8 +10,13 @@ const NewHabit = () => {
   const [priority, setPriority] = useState(null);
   const [habits, setHabits] = useState([]);
 
-  const location = useLocation();
-  let params = useParams();
+  // const location = useLocation();
+  // let params = useParams();
+
+  useEffect(() => {
+    // storing input name
+    localStorage.setItem("habits", JSON.stringify(habits));
+  }, [habits]);
 
   const resetForm = () => {
     setTitle(null);
@@ -29,7 +34,6 @@ const NewHabit = () => {
 
     setHabits([...habits, { title, streak, priority }]);
     resetForm();
-    
   };
   return (
     <>
@@ -63,16 +67,31 @@ const NewHabit = () => {
           name="priority"
           onChange={(e) => setPriority(e.target.value)}
         >
-          <option value="">Select priority</option>
-          <option value="low">Low</option>
-          <option value="mid">Mid</option>
-          <option value="high">High</option>
+          <option disabled value="">
+            Select priority
+          </option>
+          <option value="Low">Low</option>
+          <option value="Mid">Mid</option>
+          <option value="High">High</option>
         </select>
         <br />
         <button type="submit">Create Habit</button>
       </form>
 
-      <Habits habits={habits}/>
+      <div>
+        {habits &&
+          habits.map((habit) => {
+            return (
+              <>
+                <p>{habit.title}</p>
+                <p>Streak: {habit.streak}</p>
+                <p>Priority: {habit.priority}</p>
+              </>
+            );
+          })}
+      </div>
+
+      {/* <Habits habits={habits} /> */}
       <Footer />
     </>
   );

@@ -11,6 +11,8 @@ const Habits = ({habits}) => {
         return (
           <>
           <p>{habit.title}</p>
+          <p>Streak: {habit.streak}</p>
+          <p>Priority: {habit.priority}</p>
           </>
         )
       })}
