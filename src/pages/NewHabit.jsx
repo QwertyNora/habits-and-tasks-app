@@ -79,9 +79,9 @@ const NewHabit = () => {
           <option disabled value="">
             Select priority
           </option>
-          <option value="Low">Low</option>
-          <option value="Mid">Mid</option>
-          <option value="High">High</option>
+          <option value="3">Low</option>
+          <option value="2">Mid</option>
+          <option value="1">High</option>
         </select>
         <br />
         <button type="submit">Create Habit</button>
