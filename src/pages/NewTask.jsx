@@ -9,6 +9,8 @@ const NewTask = () => {
     return storedTasks;
   });
 
+  const [latestTask, setLatestTask] = useState(null);
+
   const [title, setTitle] = useState("");
   const [taskType, setTaskType] = useState("");
   const [dueDate, setDueDate] = useState("");
@@ -23,6 +25,9 @@ const NewTask = () => {
 
     const newTask = { title, taskType, dueDate };
     const updatedTasks = [...tasks, newTask];
+
+    setTasks(updatedTasks);
+    setLatestTask(newTask);
 
     // Uppdatera state och localStorage
     setTasks(updatedTasks);
@@ -47,7 +52,6 @@ const NewTask = () => {
   return (
     <>
       <h1>New Task</h1>
-
       <h2>Create New Task</h2>
       <form onSubmit={handleCreateTask}>
         <label>
@@ -91,6 +95,14 @@ const NewTask = () => {
           <button>See all tasks</button>
         </Link>
       </form>
+      {latestTask && (
+        <div>
+          <h2>New Added Task: </h2>
+          <p>Title: {latestTask.title}</p>
+          <p>Task Type: {latestTask.taskType}</p>
+          <p>Due Date: {latestTask.dueDate}</p>
+        </div>
+      )}
     </>
   );
 };
