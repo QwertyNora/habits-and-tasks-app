@@ -40,10 +40,11 @@ const NewHabit = () => {
 
     // Update state to trigger re-render
     setHabits(updatedHabits);
-    setShowRecentHabit(!showRecentHabit);
+    setShowRecentHabit(true);
 
     resetForm();
   };
+
   return (
     <>
       <Nav />
@@ -91,10 +92,19 @@ const NewHabit = () => {
         <div>
           <p>{habits[habits.length - 1].title}</p>
           <p>Streak: {habits[habits.length - 1].streak}</p>
-          <p>Priority: {habits[habits.length - 1].priority}</p>
+          <p>
+            Priority:{" "}
+            {habits[habits.length - 1].priority === "3"
+              ? "Low"
+              : habits[habits.length - 1].priority === "2"
+              ? "Mid"
+              : "High"}
+          </p>
         </div>
       )}
-      <Link to="/Habits"><button>Show All Habits</button></Link>
+      <Link to="/Habits">
+        <button>Show All Habits</button>
+      </Link>
       <Footer />
     </>
   );

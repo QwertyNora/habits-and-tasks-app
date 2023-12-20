@@ -17,11 +17,11 @@ const Habits = () => {
   };
 
   const incrementStreak = (index) => {
-  const updatedHabits = [...habits];
-  updatedHabits[index].streak = Number(updatedHabits[index].streak) + 1;
-  setInLocalStorage("habits", updatedHabits);
-  setHabits(updatedHabits);
-};
+    const updatedHabits = [...habits];
+    updatedHabits[index].streak = Number(updatedHabits[index].streak) + 1;
+    setInLocalStorage("habits", updatedHabits);
+    setHabits(updatedHabits);
+  };
 
   const decrementStreak = (index) => {
     const updatedHabits = [...habits];
@@ -37,6 +37,7 @@ const Habits = () => {
     setHabits(updatedHabits);
   };
 
+  const getFilteredHabits = () => {};
   return (
     <>
       <Nav />
