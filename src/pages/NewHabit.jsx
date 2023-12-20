@@ -5,9 +5,9 @@ import { setInLocalStorage, getFromLocalStorage } from "../HelperFunctions";
 import { Link } from "react-router-dom";
 
 const NewHabit = () => {
-  const [title, setTitle] = useState(null);
-  const [streak, setStreak] = useState(null);
-  const [priority, setPriority] = useState(null);
+  const [title, setTitle] = useState("");
+  const [streak, setStreak] = useState(undefined);
+  const [priority, setPriority] = useState("");
   const [habits, setHabits] = useState([]);
   const [showRecentHabit, setShowRecentHabit] = useState(false);
 
@@ -20,7 +20,7 @@ const NewHabit = () => {
 
   const resetForm = () => {
     setTitle("");
-    setStreak(0);
+    setStreak("");
     setPriority("");
   };
 
@@ -32,7 +32,7 @@ const NewHabit = () => {
       return;
     }
 
-    const newHabit = { title, streak, priority };
+    const newHabit = { title, streak: Number(streak), priority };
 
     const updatedHabits = [...habits, newHabit];
 
@@ -40,10 +40,11 @@ const NewHabit = () => {
 
     // Update state to trigger re-render
     setHabits(updatedHabits);
-    setShowRecentHabit(!showRecentHabit);
+    setShowRecentHabit(true);
 
     resetForm();
   };
+
   return (
     <>
       <Nav />
@@ -91,10 +92,19 @@ const NewHabit = () => {
         <div>
           <p>{habits[habits.length - 1].title}</p>
           <p>Streak: {habits[habits.length - 1].streak}</p>
-          <p>Priority: {habits[habits.length - 1].priority}</p>
+          <p>
+            Priority:{" "}
+            {habits[habits.length - 1].priority === "3"
+              ? "Low"
+              : habits[habits.length - 1].priority === "2"
+              ? "Mid"
+              : "High"}
+          </p>
         </div>
       )}
-      <Link to="/Habits"><button>Show All Habits</button></Link>
+      <Link to="/Habits">
+        <button>Show All Habits</button>
+      </Link>
       <Footer />
     </>
   );
