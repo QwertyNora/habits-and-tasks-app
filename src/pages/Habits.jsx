@@ -38,10 +38,18 @@ const Habits = () => {
     setHabits(updatedHabits);
   };
 
-  const getFilteredHabits = () => {};
+  const getFilteredHabits = () => {
+    if (sortPriority === "High to Low") {
+      return habits.slice().sort((a, b) => a.priority - b.priority);
+    } else if (sortPriority === "Low to High") {
+      return habits.slice().sort((a, b) => b.priority - a.priority);
+    }
+    // Default: return origin. array
+    return habits.slice();
+  };
 
   const handlePriorityChange = (event) => {
-    // setSortCriterion(event.target.value);
+    setSortPriority(event.target.value);
   };
   return (
     <>
@@ -54,25 +62,25 @@ const Habits = () => {
           name="filterPriority"
           onChange={handlePriorityChange}
         >
-          <option>Hight to Low</option>
+          <option>Select filter</option>
+          <option>High to Low</option>
           <option>Low to High</option>
         </select>
-        {habits &&
-          habits.map((habit, index) => (
-            <div key={index}>
-              <h2>{habit.title}</h2>
-              <ul>
-                <li>Priority: {habit.priority}</li>
-                <li>
-                  Streak:
-                  <button onClick={() => decrementStreak(index)}>-</button>
-                  {habit.streak}
-                  <button onClick={() => incrementStreak(index)}>+</button>
-                  <button onClick={() => resetStreak(index)}>Reset</button>
-                </li>
-              </ul>
-            </div>
-          ))}
+        {getFilteredHabits().map((habit, index) => (
+          <div key={index}>
+            <h2>{habit.title}</h2>
+            <ul>
+              <li>Priority: {habit.priority === "3" ? "Low" : habit.priority === "2" ? "Mid" : "High"}</li>
+              <li>
+                Streak:
+                <button onClick={() => decrementStreak(index)}>-</button>
+                {habit.streak}
+                <button onClick={() => incrementStreak(index)}>+</button>
+                <button onClick={() => resetStreak(index)}>Reset</button>
+              </li>
+            </ul>
+          </div>
+        ))}
       </div>
       <Link to="/NewHabit">
         <button>Add New Habit</button>
