@@ -1,29 +1,32 @@
 import React, { useState } from "react";
-import Task from "./Tasks";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const NewTask = ({ setTasks }) => {
+const NewTask = () => {
+  const [tasks, setTasks] = useState(() => {
+    // Hämta befintliga uppgifter från localStorage eller använd en tom array
+    const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    return storedTasks;
+  });
+
   const [title, setTitle] = useState("");
   const [taskType, setTaskType] = useState("");
   const [dueDate, setDueDate] = useState("");
+  const navigate = useNavigate();
 
   const handleCreateTask = (e) => {
     e.preventDefault();
-
     if (!title || !taskType || !dueDate) {
       alert("Input field is empty!");
       return;
     }
 
     const newTask = { title, taskType, dueDate };
+    const updatedTasks = [...tasks, newTask];
 
-    // Hämta task från localStorage
-    const existingTasks = JSON.parse(localStorage.getItem("tasks")) || [];
-
-    // Spara ny task till localStorage
-    localStorage.setItem("tasks", JSON.stringify([...existingTasks, newTask]));
-
-    // uppdatera vårat  state med våra nya tasks
-    setTasks([...existingTasks, newTask]);
+    // Uppdatera state och localStorage
+    setTasks(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
 
     setTitle("");
     setTaskType("");
@@ -84,6 +87,9 @@ const NewTask = ({ setTasks }) => {
         </button>
 
         <button type="submit">Create Task</button>
+        <Link to={{ pathname: "/tasks" }}>
+          <button>See all tasks</button>
+        </Link>
       </form>
     </>
   );
