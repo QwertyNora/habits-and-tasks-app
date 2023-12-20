@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const Habits = () => {
   const [habits, setHabits] = useState(getFromLocalStorage("habits"));
   const [showEditStreak, setShowEditStreak] = useState(false);
+  const [sortPriority, setSortPriority] = useState();
 
   useEffect(() => {
     setHabits(getFromLocalStorage("habits"));
@@ -38,12 +39,24 @@ const Habits = () => {
   };
 
   const getFilteredHabits = () => {};
+
+  const handlePriorityChange = (event) => {
+    // setSortCriterion(event.target.value);
+  };
   return (
     <>
       <Nav />
       <div>
         <h2>Habits:</h2>
-        <button>Filter by priority</button>
+        <label htmlFor="filterPriority">Filter by Priority:</label>
+        <select
+          id="filterPriority"
+          name="filterPriority"
+          onChange={handlePriorityChange}
+        >
+          <option>Hight to Low</option>
+          <option>Low to High</option>
+        </select>
         {habits &&
           habits.map((habit, index) => (
             <div key={index}>
