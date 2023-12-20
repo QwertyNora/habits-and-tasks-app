@@ -1,20 +1,29 @@
 import React, { useState } from "react";
+import Task from "./Tasks";
 
-const NewTask = ({ addTask }) => {
+const NewTask = ({ setTasks }) => {
   const [title, setTitle] = useState("");
   const [taskType, setTaskType] = useState("");
   const [dueDate, setDueDate] = useState("");
-  const [suggestedActivity, setSuggestedActivity] = useState("");
 
   const handleCreateTask = (e) => {
     e.preventDefault();
+
     if (!title || !taskType || !dueDate) {
-      alert("Input fältet är tomt!");
+      alert("Input field is empty!");
       return;
     }
 
     const newTask = { title, taskType, dueDate };
-    addTask(newTask);
+
+    // Hämta task från localStorage
+    const existingTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+    // Spara ny task till localStorage
+    localStorage.setItem("tasks", JSON.stringify([...existingTasks, newTask]));
+
+    // uppdatera vårat  state med våra nya tasks
+    setTasks([...existingTasks, newTask]);
 
     setTitle("");
     setTaskType("");
@@ -25,7 +34,6 @@ const NewTask = ({ addTask }) => {
     fetch("https://www.boredapi.com/api/activity")
       .then((response) => response.json())
       .then((data) => {
-        setSuggestedActivity(data.activity);
         setTitle(data.activity);
       })
       .catch((error) => {
@@ -36,6 +44,7 @@ const NewTask = ({ addTask }) => {
   return (
     <>
       <h1>New Task</h1>
+
       <h2>Create New Task</h2>
       <form onSubmit={handleCreateTask}>
         <label>
@@ -69,9 +78,11 @@ const NewTask = ({ addTask }) => {
           />
         </label>
         <br />
+
         <button type="button" onClick={handleSuggestRandomActivity}>
           Get Random Activity
         </button>
+
         <button type="submit">Create Task</button>
       </form>
     </>
