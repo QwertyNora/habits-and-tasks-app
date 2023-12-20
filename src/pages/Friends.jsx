@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import Styles from "../styles/Friendes.module.css"
 
 const Friends = () => {
   let [friends, setFriends] = useState([]);
@@ -10,22 +11,11 @@ const Friends = () => {
   let [sortCriterion, setSortCriterion] = useState('');
   let [selectedFriend, setSelectedFriend] = useState(null);
   let [isModalOpen, setIsModalOpen] = useState(false);
-  // let [selecedFriend, setSelecedFriend] = useState(null); //Ny för modal
 
   useEffect(() => {
     const storedFriends = JSON.parse(localStorage.getItem("friends")) || [];
     setFriends(storedFriends);
   }, []);
-
-  // const handleModalClick = (friendModal) => { //Från rad 18 till 26 ny för modal
-  //   setSelecedFriend(friendModal);
-  //   setFriends(true);
-  // }
-
-  // const handleCloseModal = () => {
-  //   setFriends(false);
-  //   setSelecedFriend(null);
-  // }
 
   const openModal = (friend) => {
     setSelectedFriend(friend);
@@ -36,8 +26,6 @@ const Friends = () => {
     setIsModalOpen(false);
     setSelectedFriend(null);
   };
-
-
 
   const handleGenderFilterChange = (event) => {
     setGenderFilter(event.target.value);
@@ -89,8 +77,6 @@ const Friends = () => {
     return options;
   };
 
-
-
   const addFriend = async () => {
     const res = await fetch("https://randomuser.me/api");
     const json = await res.json();
@@ -99,7 +85,8 @@ const Friends = () => {
     localStorage.setItem("friends", JSON.stringify([...friends, newFriend]));
   };
 
-  const removeFriend = (index) => {
+  const removeFriend = (index, event) => {
+    event.stopPropagation();
     const updatedFriends = [...friends];
     updatedFriends.splice(index, 1);
     setFriends(updatedFriends);
@@ -137,19 +124,19 @@ const Friends = () => {
           <li key={index} onClick={() => openModal(friend)}>
             <img src={friend.picture.thumbnail} alt="User Thumbnail" />
             {`${friend.name.first} ${friend.name.last}`}
-            <button onClick={() => removeFriend(index)}>Remove friend</button>
+            <button onClick={(event) => removeFriend(index, event)}>Remove friend</button>
           </li>
         ))}
       </ul>
       {isModalOpen && (
-  <div className="modal">
-    <div className="modal-content">
-      <span className="close" onClick={closeModal}>&times;</span>
+  <div className={Styles.modal} >
+    <div className={Styles.modalcontent}>
+      <span className={Styles.close} onClick={closeModal}>&times;</span>
       <img src={selectedFriend.picture.large} alt={`${selectedFriend.name.first} ${selectedFriend.name.last}`} />
       <h2>{`${selectedFriend.name.first} ${selectedFriend.name.last}`}</h2>
       <p>Email: {selectedFriend.email}</p>
       <p>Gender: {selectedFriend.gender}</p>
-      <p>Birthday: {new Date(selectedFriend.dob.date).toLocaleDateString()}</p> {/* Lägg till denna rad */}
+      <p>Birthday: {new Date(selectedFriend.dob.date).toLocaleDateString()}</p> 
     </div>
   </div>
 )}
