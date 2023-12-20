@@ -8,6 +8,7 @@ const Habits = () => {
   const [habits, setHabits] = useState(getFromLocalStorage("habits"));
   const [showEditStreak, setShowEditStreak] = useState(false);
   const [sortPriority, setSortPriority] = useState();
+  const [sortStreak, setSortStreak] = useState();
 
   useEffect(() => {
     setHabits(getFromLocalStorage("habits"));
@@ -38,39 +39,69 @@ const Habits = () => {
     setHabits(updatedHabits);
   };
 
-  const getFilteredHabits = () => {
+  const getSortedHabits = () => {
+    let sortedHabits = habits.slice();
+
     if (sortPriority === "High to Low") {
-      return habits.slice().sort((a, b) => a.priority - b.priority);
+      sortedHabits.sort((a, b) => b.priority - a.priority);
     } else if (sortPriority === "Low to High") {
-      return habits.slice().sort((a, b) => b.priority - a.priority);
+      sortedHabits.sort((a, b) => a.priority - b.priority);
     }
-    // Default: return origin. array
-    return habits.slice();
+
+    if (sortStreak === "High to Low") {
+      sortedHabits.sort((a, b) => b.streak - a.streak);
+    } else if (sortStreak === "Low to High") {
+      sortedHabits.sort((a, b) => a.streak - b.streak);
+    }
+
+    return sortedHabits;
   };
 
   const handlePriorityChange = (event) => {
     setSortPriority(event.target.value);
   };
+
+  const handleStreakChange = (event) => {
+    setSortStreak(event.target.value);
+  };
+
   return (
     <>
       <Nav />
       <div>
         <h2>Habits:</h2>
-        <label htmlFor="filterPriority">Filter by Priority:</label>
+        <label htmlFor="filterPriority">Sort by Priority:</label>
         <select
           id="filterPriority"
           name="filterPriority"
           onChange={handlePriorityChange}
         >
-          <option>Select filter</option>
+          <option disabled selected hidden>Select</option>
           <option>High to Low</option>
           <option>Low to High</option>
         </select>
-        {getFilteredHabits().map((habit, index) => (
+        <label htmlFor="filterStreak">Sort by Streak:</label>
+        <select
+          id="filterStreak"
+          name="filterStreak"
+          onChange={handleStreakChange}
+        >
+          <option disabled selected hidden>Select</option>
+          <option>High to Low</option>
+          <option>Low to High</option>
+        </select>
+        {getSortedHabits().map((habit, index) => (
           <div key={index}>
             <h2>{habit.title}</h2>
             <ul>
-              <li>Priority: {habit.priority === "3" ? "Low" : habit.priority === "2" ? "Mid" : "High"}</li>
+              <li>
+                Priority:{" "}
+                {habit.priority === "3"
+                  ? "Low"
+                  : habit.priority === "2"
+                  ? "Mid"
+                  : "High"}
+              </li>
               <li>
                 Streak:
                 <button onClick={() => decrementStreak(index)}>-</button>
