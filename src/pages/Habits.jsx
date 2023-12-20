@@ -41,20 +41,4 @@ const Habits = () => {
 
 export default Habits;
 
-// Tankar:
 
-//Skicka över state med det victor sa.
-// Använd index
-// Inspo:
-// const App = () => {
-//   const [count, setCount] = useState(0);
-//   return (
-//     <div>
-//       <p>{count}</p>
-//       <button onClick={() => setCount(count + 1)}>Increment</button>
-//       <button onClick={() => setCount(count - 1)}>Decrement</button>
-//     </div>
-//   );
-// };
-
-// export default App;
