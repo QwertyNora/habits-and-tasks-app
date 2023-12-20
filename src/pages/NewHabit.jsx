@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const NewHabit = () => {
   const [title, setTitle] = useState("");
-  const [streak, setStreak] = useState("");
+  const [streak, setStreak] = useState(undefined);
   const [priority, setPriority] = useState("");
   const [habits, setHabits] = useState([]);
   const [showRecentHabit, setShowRecentHabit] = useState(false);
@@ -32,7 +32,7 @@ const NewHabit = () => {
       return;
     }
 
-    const newHabit = { title, streak, priority };
+    const newHabit = { title, streak: Number(streak), priority };
 
     const updatedHabits = [...habits, newHabit];
 

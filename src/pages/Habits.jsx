@@ -16,16 +16,16 @@ const Habits = () => {
     setShowEditStreak(index);
   };
 
+  const incrementStreak = (index) => {
+  const updatedHabits = [...habits];
+  updatedHabits[index].streak = Number(updatedHabits[index].streak) + 1;
+  setInLocalStorage("habits", updatedHabits);
+  setHabits(updatedHabits);
+};
+
   const decrementStreak = (index) => {
     const updatedHabits = [...habits];
     updatedHabits[index].streak = Math.max(0, updatedHabits[index].streak - 1);
-    setInLocalStorage("habits", updatedHabits);
-    setHabits(updatedHabits);
-  };
-
-  const incrementStreak = (index) => {
-    const updatedHabits = [...habits];
-    updatedHabits[index].streak += 1;
     setInLocalStorage("habits", updatedHabits);
     setHabits(updatedHabits);
   };
@@ -41,6 +41,8 @@ const Habits = () => {
     <>
       <Nav />
       <div>
+        <h2>Habits:</h2>
+        <button>Filter by priority</button>
         {habits &&
           habits.map((habit, index) => (
             <div key={index}>
