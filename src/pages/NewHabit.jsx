@@ -5,9 +5,9 @@ import { setInLocalStorage, getFromLocalStorage } from "../HelperFunctions";
 import { Link } from "react-router-dom";
 
 const NewHabit = () => {
-  const [title, setTitle] = useState(null);
-  const [streak, setStreak] = useState(null);
-  const [priority, setPriority] = useState(null);
+  const [title, setTitle] = useState("");
+  const [streak, setStreak] = useState("");
+  const [priority, setPriority] = useState("");
   const [habits, setHabits] = useState([]);
   const [showRecentHabit, setShowRecentHabit] = useState(false);
 
@@ -20,7 +20,7 @@ const NewHabit = () => {
 
   const resetForm = () => {
     setTitle("");
-    setStreak(0);
+    setStreak("");
     setPriority("");
   };
 
