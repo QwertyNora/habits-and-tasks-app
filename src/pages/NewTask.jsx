@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 const NewTask = () => {
   const [tasks, setTasks] = useState(() => {
-    // Hämta befintliga uppgifter från localStorage eller använd en tom array
     const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
     return storedTasks;
   });
@@ -71,7 +70,7 @@ const NewTask = () => {
           >
             <option value="">Select Type</option>
             <option value="Jobbrelaterat">Jobbrelaterat</option>
-            <option value="fun">Rolig aktivitet</option>
+            <option value="fun">fun</option>
             <option value="Sysslor">Sysslor</option>
           </select>
         </label>
