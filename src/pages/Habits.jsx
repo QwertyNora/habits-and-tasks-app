@@ -15,25 +15,27 @@ const Habits = () => {
   }, []);
 
   const incrementStreak = (id) => {
-    const updatedHabits = [...habits];
-    let index = updatedHabits.findIndex((habit) => habit.id === id);
-    updatedHabits[index].streak = Number(updatedHabits[index].streak) + 1;
+    const updatedHabits = habits.map((habit) =>
+      habit.id === id ? { ...habit, streak: habit.streak + 1 } : habit
+    );
     setInLocalStorage("habits", updatedHabits);
     setHabits(updatedHabits);
   };
 
   const decrementStreak = (id) => {
-    const updatedHabits = [...habits];
-    let index = updatedHabits.findIndex((habit) => habit.id === id);
-    updatedHabits[index].streak = Math.max(0, updatedHabits[index].streak - 1);
+    const updatedHabits = habits.map((habit) =>
+      habit.id === id
+        ? { ...habit, streak: Math.max(0, habit.streak - 1) }
+        : habit
+    );
     setInLocalStorage("habits", updatedHabits);
     setHabits(updatedHabits);
   };
 
   const resetStreak = (id) => {
-    const updatedHabits = [...habits];
-    let index = updatedHabits.findIndex((habit) => habit.id === id);
-    updatedHabits[index].streak = 0;
+    const updatedHabits = habits.map((habit) =>
+      habit.id === id ? { ...habit, streak: 0 } : habit
+    );
     setInLocalStorage("habits", updatedHabits);
     setHabits(updatedHabits);
   };
@@ -62,11 +64,19 @@ const Habits = () => {
     let sortedHabits = filteredHabits.slice();
 
     if (sortPriority === "HighLow" && filterPriority === "All") {
-      sortedHabits.sort((a, b) => b.priority - a.priority);
+      sortedHabits.sort((a, b) => {
+        let prioA = a.priority === "High" ? 1 : a.priority === "Mid" ? 2 : 3;
+        let prioB = b.priority === "High" ? 1 : b.priority === "Mid" ? 2 : 3;
+        return prioA - prioB;
+      });
     } else if (sortPriority === "LowHigh" && filterPriority === "All") {
-      sortedHabits.sort((a, b) => a.priority - b.priority);
+      sortedHabits.sort((a, b) => {
+        let prioA = a.priority === "High" ? 1 : a.priority === "Mid" ? 2 : 3;
+        let prioB = b.priority === "High" ? 1 : b.priority === "Mid" ? 2 : 3;
+        return prioB - prioA;
+      });
     }
-
+    console.log(sortedHabits);
     if (sortStreak === "HighLow") {
       sortedHabits.sort((a, b) => b.streak - a.streak);
     } else if (sortStreak === "LowHigh") {
@@ -139,3 +149,27 @@ const Habits = () => {
 };
 
 export default Habits;
+
+// const incrementStreak = (id) => {
+//   const updatedHabits = [...habits];
+//   let index = updatedHabits.findIndex((habit) => habit.id === id);
+//   updatedHabits[index].streak = Number(updatedHabits[index].streak) + 1;
+//   setInLocalStorage("habits", updatedHabits);
+//   setHabits(updatedHabits);
+// };
+
+// const decrementStreak = (id) => {
+//   const updatedHabits = [...habits];
+//   let index = updatedHabits.findIndex((habit) => habit.id === id);
+//   updatedHabits[index].streak = Math.max(0, updatedHabits[index].streak - 1);
+//   setInLocalStorage("habits", updatedHabits);
+//   setHabits(updatedHabits);
+// };
+
+// const resetStreak = (id) => {
+//   const updatedHabits = [...habits];
+//   let index = updatedHabits.findIndex((habit) => habit.id === id);
+//   updatedHabits[index].streak = 0;
+//   setInLocalStorage("habits", updatedHabits);
+//   setHabits(updatedHabits);
+// };
