@@ -1,0 +1,36 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px; 
+    background-color: rgb(151, 151, 255);
+  }
+  
+  .appName {
+    margin-right: auto;
+    font-size: 25px;
+    font-family: monospace;
+    border: 2px solid black;
+  }
+  
+  .linkList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  .linkListItem {
+    margin: 0 10px;
+  }
+  
+  .link {
+    text-decoration: none;
+  }
+  
+  .button {
+    margin: 0 5px;
+    border-radius: 5px;
+    background-color: orange;
+    color: rgb(0, 0, 255);
+  }
