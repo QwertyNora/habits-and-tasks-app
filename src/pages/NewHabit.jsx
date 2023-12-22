@@ -111,3 +111,10 @@ const NewHabit = () => {
 };
 
 export default NewHabit;
+
+// Add a stable identifier (like id) to each habit:
+// Make sure each habit has a unique identifier that doesn't change when sorting.
+// Update your actions to use this identifier instead of the index:
+// Modify the incrementStreak, decrementStreak, and resetStreak functions to accept the habit's identifier (e.g., id) instead of the index.
+// Modify your buttons to pass the correct identifier:
+// Update the buttons in the getSortedHabits().map section to pass the correct identifier to the corresponding actions.
