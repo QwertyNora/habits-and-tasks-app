@@ -6,17 +6,13 @@ import { Link } from "react-router-dom";
 
 const Habits = () => {
   const [habits, setHabits] = useState(getFromLocalStorage("habits"));
-  const [showEditStreak, setShowEditStreak] = useState(false);
   const [sortPriority, setSortPriority] = useState();
+  const [filterPriority, setFilterPriority] = useState("All");
   const [sortStreak, setSortStreak] = useState();
 
   useEffect(() => {
     setHabits(getFromLocalStorage("habits"));
   }, []);
-
-  const handleEditStreak = (index) => {
-    setShowEditStreak(index);
-  };
 
   const incrementStreak = (index) => {
     const updatedHabits = [...habits];
@@ -39,30 +35,42 @@ const Habits = () => {
     setHabits(updatedHabits);
   };
 
-  const getSortedHabits = () => {
-    let sortedHabits = habits.slice();
+  const handleFilterPriority = (e) => {
+    setFilterPriority(e.target.value);
+  };
 
-    if (sortPriority === "High to Low") {
+  const handleSortPriority = (e) => {
+    setSortPriority(e.target.value);
+  };
+
+  const handleSortStreak = (e) => {
+    setSortStreak(e.target.value);
+  };
+
+  const filteredHabits = habits.filter((habit) => {
+    if (filterPriority === "All") {
+      return true;
+    } else {
+      return habit.priority === filterPriority;
+    }
+  });
+
+  const getSortedHabits = () => {
+    let sortedHabits = filteredHabits.slice();
+
+    if (sortPriority === "HighLow" && filterPriority === "All") {
       sortedHabits.sort((a, b) => b.priority - a.priority);
-    } else if (sortPriority === "Low to High") {
+    } else if (sortPriority === "LowHigh" && filterPriority === "All") {
       sortedHabits.sort((a, b) => a.priority - b.priority);
     }
 
-    if (sortStreak === "High to Low") {
+    if (sortStreak === "HighLow") {
       sortedHabits.sort((a, b) => b.streak - a.streak);
-    } else if (sortStreak === "Low to High") {
+    } else if (sortStreak === "LowHigh") {
       sortedHabits.sort((a, b) => a.streak - b.streak);
     }
 
     return sortedHabits;
-  };
-
-  const handlePriorityChange = (event) => {
-    setSortPriority(event.target.value);
-  };
-
-  const handleStreakChange = (event) => {
-    setSortStreak(event.target.value);
   };
 
   return (
@@ -70,38 +78,42 @@ const Habits = () => {
       <Nav />
       <div>
         <h2>Habits:</h2>
-        <label htmlFor="filterPriority">Sort by Priority:</label>
+        <label htmlFor="filterPriority">Filter by Priority:</label>
         <select
           id="filterPriority"
           name="filterPriority"
-          onChange={handlePriorityChange}
+          value={filterPriority}
+          onChange={handleFilterPriority}
         >
-          <option disabled selected hidden>Select</option>
-          <option>High to Low</option>
-          <option>Low to High</option>
+          <option value="All">All</option>
+          <option value="High">High</option>
+          <option value="Mid">Mid</option>
+          <option value="Low">Low</option>
         </select>
-        <label htmlFor="filterStreak">Sort by Streak:</label>
+        <br />
+        <label htmlFor="sortPriority">Sort by Priority:</label>
         <select
-          id="filterStreak"
-          name="filterStreak"
-          onChange={handleStreakChange}
+          id="sortPriority"
+          name="sortPriority"
+          onChange={handleSortPriority}
         >
-          <option disabled selected hidden>Select</option>
-          <option>High to Low</option>
-          <option>Low to High</option>
+          <option value="">Select</option>
+          <option value="HighLow">High to Low</option>
+          <option value="LowHigh">Low to High</option>
+        </select>
+        <br />
+        <label htmlFor="sortStreak">Sort by Streak:</label>
+        <select id="sortStreak" name="sortStreak" onChange={handleSortStreak}>
+          <option value="">Select</option>
+          <option value="HighLow">High to Low</option>
+          <option value="LowHigh">Low to High</option>
         </select>
         {getSortedHabits().map((habit, index) => (
           <div key={index}>
             <h2>{habit.title}</h2>
             <ul>
-              <li>
-                Priority:{" "}
-                {habit.priority === "3"
-                  ? "Low"
-                  : habit.priority === "2"
-                  ? "Mid"
-                  : "High"}
-              </li>
+              <li>Priority:
+            {habit.priority}</li>
               <li>
                 Streak:
                 <button onClick={() => decrementStreak(index)}>-</button>
@@ -122,3 +134,4 @@ const Habits = () => {
 };
 
 export default Habits;
+
