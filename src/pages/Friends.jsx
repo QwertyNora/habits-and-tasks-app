@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
-import Styles from "../styles/Friendes.module.css"
+import Styles from "../styles/Friendes.module.css";
 
 const Friends = () => {
   let [friends, setFriends] = useState([]);
-  let [genderFilter, setGenderFilter] = useState('');
-  let [maxAge, setMaxAge] = useState('');
-  let [minAge, setMinAge] = useState('');
-  let [sortCriterion, setSortCriterion] = useState('');
+  let [genderFilter, setGenderFilter] = useState("");
+  let [maxAge, setMaxAge] = useState("");
+  let [minAge, setMinAge] = useState("");
+  let [sortCriterion, setSortCriterion] = useState("");
   let [selectedFriend, setSelectedFriend] = useState(null);
   let [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -45,7 +45,7 @@ const Friends = () => {
 
   const getFilteredFriends = () => {
     return friends
-      .filter(friend => {
+      .filter((friend) => {
         if (genderFilter && friend.gender !== genderFilter) {
           return false;
         }
@@ -58,11 +58,11 @@ const Friends = () => {
         return true;
       })
       .sort((a, b) => {
-        if (sortCriterion === 'age') {
+        if (sortCriterion === "age") {
           return a.dob.age - b.dob.age;
-        } else if (sortCriterion === 'firstName') {
+        } else if (sortCriterion === "firstName") {
           return a.name.first.localeCompare(b.name.first);
-        } else if (sortCriterion === 'lastName') {
+        } else if (sortCriterion === "lastName") {
           return a.name.last.localeCompare(b.name.last);
         }
         return 0;
@@ -72,7 +72,11 @@ const Friends = () => {
   const generateAgeOptions = (start, end) => {
     const options = [];
     for (let i = start; i <= end; i++) {
-      options.push(<option key={i} value={i}>{i}</option>);
+      options.push(
+        <option key={i} value={i}>
+          {i}
+        </option>
+      );
     }
     return options;
   };
@@ -124,24 +128,33 @@ const Friends = () => {
           <li key={index} onClick={() => openModal(friend)}>
             <img src={friend.picture.thumbnail} alt="User Thumbnail" />
             {`${friend.name.first} ${friend.name.last}`}
-            <button onClick={(event) => removeFriend(index, event)}>Remove friend</button>
+            <button onClick={(event) => removeFriend(index, event)}>
+              Remove friend
+            </button>
           </li>
         ))}
       </ul>
       {isModalOpen && (
-  <div className={Styles.modal} >
-    <div className={Styles.modalcontent}>
-      <span className={Styles.close} onClick={closeModal}>&times;</span>
-      <img src={selectedFriend.picture.large} alt={`${selectedFriend.name.first} ${selectedFriend.name.last}`} />
-      <h2>{`${selectedFriend.name.first} ${selectedFriend.name.last}`}</h2>
-      <p>Email: {selectedFriend.email}</p>
-      <p>Gender: {selectedFriend.gender}</p>
-      <p>Birthday: {new Date(selectedFriend.dob.date).toLocaleDateString()}</p> 
-    </div>
-  </div>
-)}
+        <div className={Styles.modal}>
+          <div className={Styles.modalcontent}>
+            <span className={Styles.close} onClick={closeModal}>
+              &times;
+            </span>
+            <img
+              src={selectedFriend.picture.large}
+              alt={`${selectedFriend.name.first} ${selectedFriend.name.last}`}
+            />
+            <h2>{`${selectedFriend.name.first} ${selectedFriend.name.last}`}</h2>
+            <p>Email: {selectedFriend.email}</p>
+            <p>Gender: {selectedFriend.gender}</p>
+            <p>
+              Birthday: {new Date(selectedFriend.dob.date).toLocaleDateString()}
+            </p>
+          </div>
+        </div>
+      )}
       <Footer />
-      </>
+    </>
   );
 };
 
