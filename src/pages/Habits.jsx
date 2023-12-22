@@ -14,22 +14,25 @@ const Habits = () => {
     setHabits(getFromLocalStorage("habits"));
   }, []);
 
-  const incrementStreak = (index) => {
+  const incrementStreak = (id) => {
     const updatedHabits = [...habits];
+    let index = updatedHabits.findIndex((habit) => habit.id === id);
     updatedHabits[index].streak = Number(updatedHabits[index].streak) + 1;
     setInLocalStorage("habits", updatedHabits);
     setHabits(updatedHabits);
   };
 
-  const decrementStreak = (index) => {
+  const decrementStreak = (id) => {
     const updatedHabits = [...habits];
+    let index = updatedHabits.findIndex((habit) => habit.id === id);
     updatedHabits[index].streak = Math.max(0, updatedHabits[index].streak - 1);
     setInLocalStorage("habits", updatedHabits);
     setHabits(updatedHabits);
   };
 
-  const resetStreak = (index) => {
+  const resetStreak = (id) => {
     const updatedHabits = [...habits];
+    let index = updatedHabits.findIndex((habit) => habit.id === id);
     updatedHabits[index].streak = 0;
     setInLocalStorage("habits", updatedHabits);
     setHabits(updatedHabits);
@@ -112,14 +115,16 @@ const Habits = () => {
           <div key={index}>
             <h2>{habit.title}</h2>
             <ul>
-              <li>Priority:
-            {habit.priority}</li>
+              <li>
+                Priority:
+                {habit.priority}
+              </li>
               <li>
                 Streak:
-                <button onClick={() => decrementStreak(index)}>-</button>
+                <button onClick={() => decrementStreak(habit.id)}>-</button>
                 {habit.streak}
-                <button onClick={() => incrementStreak(index)}>+</button>
-                <button onClick={() => resetStreak(index)}>Reset</button>
+                <button onClick={() => incrementStreak(habit.id)}>+</button>
+                <button onClick={() => resetStreak(habit.id)}>Reset</button>
               </li>
             </ul>
           </div>
@@ -134,4 +139,3 @@ const Habits = () => {
 };
 
 export default Habits;
-
