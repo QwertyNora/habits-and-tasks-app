@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Styles from "../styles/Home.module.css"
@@ -6,9 +6,33 @@ import MyImage from "../pics//earth - kopia.jpg"
 
 const Home = () => {
 
+  const [titles, setTitles] = useState([]);
+
   const showAlert = () => {
     alert("We are still workin on this feature");
   };
+
+  const getTitleTopList = (indexes) => {
+    return indexes.map(index => {
+      const itemString = localStorage.getItem('item-${index}');
+      if (itemString) {
+        const item = JSON.parse(itemString);
+        return item.title;
+      }
+      return null;
+    }).filter(title => title !== null);
+  };
+  
+  
+    
+
+    useEffect(() => {
+      const indexes = [0, 1, 2];
+      const retrievedTitles = getTitleTopList(indexes);
+      setTitles(retrievedTitles);
+    }, []);
+    console.log(titles);
+  
 
   return (
     <>
@@ -41,10 +65,22 @@ const Home = () => {
       <img src={MyImage} alt="Jorden" />
       </div>
       </div>
-      <div className={Styles.toplist}>
+      <div>
+        {titles.map((title, index) => {
+          <ul>
+          <li key={index(0)}>{title}</li>
+          <li key={index(1)}>{title}</li>
+          <li key={index(2)}>{title}</li>
+          </ul>
+        })}
+      </div>
+
+      {/* <div className={Styles.toplist}>
         <section className={Styles.listItems}>
-          <h2>Topplist Friends</h2>
+          <h2>Recent added Friends</h2>
         <ol>
+          <li>content</li>
+          <li>content</li>
           <li>content</li>
           <li>content</li>
           <li>content</li>
@@ -66,7 +102,7 @@ const Home = () => {
           <li>content</li>
         </ol>
         </section>
-      </div>
+      </div> */}
       
       <Footer />
     </>
