@@ -124,9 +124,9 @@ const Tasks = () => {
           Filter by Task Type:
           <select value={selectedTaskType} onChange={handleTaskTypeChange}>
             <option value="All">All</option>
-            <option value="Jobbrelaterat">Jobbrelaterat</option>
-            <option value="fun">Rolig aktivitet</option>
-            <option value="Sysslor">Sysslor</option>
+            <option value="work related">work related</option>
+            <option value="For fun">For fun</option>
+            <option value="Chores">Chores</option>
           </select>
         </label>
         <div className="task-list">
@@ -161,9 +161,9 @@ const Tasks = () => {
                     value={editedTask.taskType}
                     onChange={(e) => handleEditChange(e, "taskType")}
                   >
-                    <option value="Jobbrelaterat">Jobbrelaterat</option>
-                    <option value="fun">fun</option>
-                    <option value="Sysslor">Sysslor</option>
+                    <option value="work related">Jobbrelaterat</option>
+                    <option value="for fun">fun</option>
+                    <option value="Chores">Chores</option>
                   </select>
                   <input
                     type="date"
