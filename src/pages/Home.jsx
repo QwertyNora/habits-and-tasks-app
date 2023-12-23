@@ -1,14 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Styles from "../styles/Home.module.css";
 import MyImage from "../pics//earth - kopia.jpg";
+import Tasks from "../pages/Tasks"
+import NewTasks from "../pages/NewTask"
 
 const Home = () => {
+
+  const [titles, setTitles] = useState([]);
+
   const showAlert = () => {
     alert("We are still workin on this feature");
   };
 
+  useEffect(() => {
+    const indexes = [0, 1, 2];
+    const retrievedTitles = getTitleTopList(indexes);
+    setTitles(retrievedTitles);
+  }, []);
+
+  const getTitleTopList = (indexes) => {
+    return indexes.map(index => {
+      const itemString = localStorage.getItem(`item-${index}`); 
+      if (itemString) {
+        const item = JSON.parse(itemString);
+        return item.title;
+      }
+      return null;
+    }).filter(title => title !== null);
+  };
+  console.log(titles);
   return (
     <>
       <Header />
@@ -39,33 +61,13 @@ const Home = () => {
           <img src={MyImage} alt="Jorden" />
         </div>
       </div>
-      <div className={Styles.toplist}>
-        <section className={Styles.listItems}>
-          <h2>Topplist Friends</h2>
-          <ol>
-            <li>content</li>
-            <li>content</li>
-            <li>content</li>
-          </ol>
-        </section>
-        <section className={Styles.listItems}>
-          <h2>Topplist Tasks</h2>
-          <ol>
-            <li>content</li>
-            <li>content</li>
-            <li>content</li>
-          </ol>
-        </section>
-        <section className={Styles.listItems}>
-          <h2>Topplist Habits</h2>
-          <ol>
-            <li>content</li>
-            <li>content</li>
-            <li>content</li>
-          </ol>
-        </section>
+      <div>
+        <ul>
+        {titles.map((title, index) => {
+          <li key={index}>{title}</li>
+        })}
+        </ul>
       </div>
-
       <Footer />
     </>
   );
