@@ -69,9 +69,9 @@ const NewTask = () => {
             onChange={(e) => setTaskType(e.target.value)}
           >
             <option value="">Select Type</option>
-            <option value="Jobbrelaterat">Jobbrelaterat</option>
-            <option value="fun">fun</option>
-            <option value="Sysslor">Sysslor</option>
+            <option value="work related">Work related</option>
+            <option value="for fun">for fun</option>
+            <option value="Chores">Chores</option>
           </select>
         </label>
         <br />
