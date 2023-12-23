@@ -43,6 +43,8 @@ const Tasks = () => {
     filterTasks(selectedTaskType);
   };
 
+  
+
   const filterTasks = (taskType) => {
     let filtered =
       taskType === "All"
