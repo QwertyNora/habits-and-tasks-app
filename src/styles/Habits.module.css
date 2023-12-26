@@ -1,17 +1,17 @@
-.habitsWrapper{
+.habitsWrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.selectContainer{
+.selectContainer {
     display: flex;
     gap: 2rem;
     padding: 1rem;
     border: 1px solid rgb(209, 91, 91);
 }
 
-.habitsContainer{
+.habitsContainer {
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -25,7 +25,7 @@ label {
     margin-right: 0.5rem;
 }
 
-.habit{
+.habit {
     border: 1px solid rgb(163, 163, 163);
     padding: 10rem;
     color: red;
