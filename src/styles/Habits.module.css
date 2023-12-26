@@ -67,7 +67,7 @@ button {
 
 button:hover {
     background: rgb(2, 0, 36);
-    background: linear-gradient(90deg, rgba(30, 144, 255, 1) 0%, rgba(0, 212, 255, 1) 100%);
+    background-image: linear-gradient(to right top, #5841d8, #614bde, #6a55e3, #735ee9, #7c68ee);
 }
 
 button:active {

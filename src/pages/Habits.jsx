@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import { getFromLocalStorage, setInLocalStorage } from "../HelperFunctions";
 import { Link } from "react-router-dom";
 import Styles from "../styles/Habits.module.css";
+import Button from "../styles/Button.module.css"
 
 const Habits = () => {
   const [habits, setHabits] = useState(getFromLocalStorage("habits"));
@@ -155,10 +156,10 @@ const Habits = () => {
                 </li>
                 <li>
                   Streak:
-                  <button onClick={() => decrementStreak(habit.id)}>-</button>
+                  <button className={Button.button} onClick={() => decrementStreak(habit.id)}>-</button>
                   {habit.streak}
-                  <button onClick={() => incrementStreak(habit.id)}>+</button>
-                  <button onClick={() => resetStreak(habit.id)}>Reset</button>
+                  <button className={Button.button} onClick={() => incrementStreak(habit.id)}>+</button>
+                  <button className={Button.button} onClick={() => resetStreak(habit.id)}>Reset</button>
                 </li>
               </ul>
             </div>
