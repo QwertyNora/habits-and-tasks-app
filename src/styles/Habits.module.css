@@ -16,7 +16,6 @@
     flex-direction: column;
     gap: 2rem;
     padding: 3rem;
-    border: 1px solid rgb(15, 78, 173);
     min-width: 60%;
     max-width: 90%;
 }
@@ -26,8 +25,15 @@ label {
 }
 
 .habit {
+    display: flex;
+    justify-content: space-around;
     padding: 2rem;
-    color: rgb(255, 0, 38);
+    color: rgb(68, 67, 67);
     flex-direction: row;
-
+    border-radius: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.437);
+    background: #ededed;
+    box-shadow:  9px 9px 13px #e8e8e8,
+                 -9px -9px 13px #f2f2f2e9;
 }
+
