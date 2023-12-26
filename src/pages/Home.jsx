@@ -3,34 +3,27 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Styles from "../styles/Home.module.css";
 import MyImage from "../pics//earth - kopia.jpg";
-import Tasks from "../pages/Tasks"
-import NewTasks from "../pages/NewTask"
 
 const Home = () => {
-
-  const [titles, setTitles] = useState([]);
+  const [topTasks, setTopTasks] = useState([]);
+  const [topHabits, setTopHabits] = useState([]);
+  const [topFriends, setTopFriends] = useState([]);
 
   const showAlert = () => {
     alert("We are still workin on this feature");
   };
 
+  const getTopItems = (categoryKey, count = 3) => {
+    const items = JSON.parse(localStorage.getItem(categoryKey)) || [];
+    return items.slice(0, count); 
+  };
+
   useEffect(() => {
-    const indexes = [0, 1, 2];
-    const retrievedTitles = getTitleTopList(indexes);
-    setTitles(retrievedTitles);
+    setTopTasks(getTopItems("tasks"));
+    setTopHabits(getTopItems("habits"));
+    setTopFriends(getTopItems("friends"));
   }, []);
 
-  const getTitleTopList = (indexes) => {
-    return indexes.map(index => {
-      const itemString = localStorage.getItem(`item-${index}`); 
-      if (itemString) {
-        const item = JSON.parse(itemString);
-        return item.title;
-      }
-      return null;
-    }).filter(title => title !== null);
-  };
-  console.log(titles);
   return (
     <>
       <Header />
@@ -61,13 +54,28 @@ const Home = () => {
           <img src={MyImage} alt="Jorden" />
         </div>
       </div>
-      <div>
-        <ul>
-        {titles.map((title, index) => {
-          <li key={index}>{title}</li>
-        })}
-        </ul>
-      </div>
+      <div className={Styles.toplist}>
+      <h2>Top Tasks</h2>
+      <ul>
+        {topTasks.map((task, index) => (
+          <li key={index}>{task.title}</li>
+        ))}
+      </ul>
+      <h2>Top Habits</h2>
+      <ul>
+        {topHabits.map((habit, index) => (
+          <li key={index}>{habit.title}</li>
+        ))}
+      </ul>
+      <h2>Top Friends</h2>
+      <ul>
+        {topFriends.map((friend, index) => (
+          <li key={index}>
+            {friend.name.first} {friend.name.last} 
+          </li>
+        ))}
+      </ul>
+    </div>
       <Footer />
     </>
   );
