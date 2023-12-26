@@ -1,0 +1,15 @@
+* {
+    font-family: "Celias-Light", sans-serif;
+}
+
+body {
+    background-color: #fafaff;
+}
+
+@font-face {
+    font-family: "Celias-Light";
+    src: url("./styles/font/Celias-Light.eot");
+    src: url("./styles/font/Celias-Light.woff") format("woff"),
+        url("./styles/font/Celias-Light.ttf") format("truetype"),
+        url("./styles/font/Celias-Light.woff2") format("woff2");
+}
