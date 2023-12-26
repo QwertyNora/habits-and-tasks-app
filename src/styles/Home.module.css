@@ -1,45 +1,47 @@
 .headLine {
-    margin-right: auto;
-    font-size: 25px;
-    font-family: monospace;
-    border: 2px solid black;
-    margin-right: 850px;
-    margin-top: 15px;
-    border-radius: 15px;
+  margin-right: auto;
+  font-size: 25px;
+  font-family: monospace;
+  border: 2px solid black;
+  margin-right: 850px;
+  margin-top: 15px;
+  border-radius: 15px;
 }
 
 .pText {
-    font-size: 25px;
-    border: 2px solid black;
-    border-radius: 15px;
-    margin-top: 15px;
-    flex: 1;
+  font-size: 25px;
+  border: 2px solid black;
+  border-radius: 15px;
+  margin-top: 15px;
+  flex: 1;
 }
 
 .myImage img {
-    width: 1000px;
-    height: auto;
-    margin-top: 15px;
-    border-radius: 15px;
-    flex: 1;
+  width: 1000px;
+  height: auto;
+  margin-top: 15px;
+  border-radius: 15px;
+  flex: 1;
 }
 
 .toplist {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .listItems {
-    border: 2px solid black;
-    border-radius: 15px;
-    background-color: rgb(151, 151, 255);
-    padding: 15px;
-    font-size: 25px;
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: rgb(151, 151, 255);
+  padding: 15px;
+  font-size: 25px;
 }
 
 .contentContainer {
-    display: flex;
-    justify-content: space-between;
-    gap: 50px;
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
 }
+
+
 
