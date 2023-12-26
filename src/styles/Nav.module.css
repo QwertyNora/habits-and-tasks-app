@@ -1,36 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+  text-decoration: none;
+}
+
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px; 
-    background-color: rgb(151, 151, 255);
+  height: 13vh;
+  background-color: rgb(87, 65, 216);
+  line-height: 10vh;
+  width: 100%;
+}
+
+.logo {
+  font-size: 35px;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  margin-right: auto;
+}
+
+.container {
+  margin: 0 40px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-links li {
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 10px;
+  margin: 0 17px;
+  font-weight: 500;
+}
+
+.linkListItem {
+  margin: 0 10px;
+}
+
+.link {
+  font-size: 10px;
+  text-decoration: none;
+  color: white;
+  font-family: sans-serif;
+  font-weight: 900;
+}
+
+.mobileMenuIcon {
+  border: none;
+  background: none;
+  font-size: 20px;
+}
+
+.mobileMenuIcon {
+  display: none;
+}
+
+.loginButton {
+  align-items: center;
+  appearance: none;
+  background-color: white;
+  border: 2px solid rgb(87, 65, 216);
+  border-radius: 24px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
+    rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
+  box-sizing: border-box;
+  color: rgb(87, 65, 216);
+  cursor: pointer;
+  display: inline-flex;
+  fill: currentcolor;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: 0.25px;
+  line-height: normal;
+  max-width: 100%;
+  padding: 2px 24px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+
+  width: auto;
+  will-change: transform, opacity;
+  z-index: 0;
+}
+
+.signupButton {
+  align-items: center;
+  appearance: none;
+  background-color: rgb(87, 65, 216);
+  border: 2px solid rgb(87, 65, 216);
+  border-radius: 24px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
+    rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  fill: currentcolor;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: 0.25px;
+  line-height: normal;
+  max-width: 100%;
+  overflow: visible;
+  padding: 2px 24px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  width: auto;
+  z-index: 0;
+}
+
+.loginButton:hover,
+.signupButton:hover {
+  background: #f6f9fe;
+  color: rgb(87, 65, 216);
+}
+
+.loginButton:active,
+.signupButton:active {
+  box-shadow: 0 4px 4px 0 rgba(60, 64, 67, 30%),
+    0 8px 12px 6px rgba(60, 64, 67, 15%);
+  outline: none;
+}
+
+.loginButton:focus,
+.signupButton:focus {
+  outline: none;
+  border: 2px solid rgb(87, 65, 216);
+}
+
+@media (max-width: 768px) {
+  .logo,
+  .mobileMenuIcon {
+    margin: 0 auto;
   }
-  
-  .appName {
-    margin-right: auto;
-    font-size: 25px;
-    font-family: monospace;
-    border: 2px solid black;
+
+  .navbar {
+    height: 10vh;
+    background-color: rgb(87, 65, 216);
+    line-height: 15vh;
+    width: 100%;
   }
-  
-  .linkList {
+
+  .nav-links {
+    display: none;
+  }
+
+  .loginButton {
+    display: none;
+  }
+  .signupButton {
+    display: none;
+  }
+
+  .nav-links-mobile {
+    position: absolute;
+    display: block;
     list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
+    left: 0;
+    top: 10%;
+    transition: all 1.5s ease-in-out;
+    width: 100%;
+    color: rgba(88, 65, 216, 0.935);
+    background-color: white;
+    border-radius: 15px;
   }
-  
-  .linkListItem {
-    margin: 0 10px;
+
+  .nav-links-mobile li a {
+    color: rgba(88, 65, 216, 0.935);
   }
-  
-  .link {
-    text-decoration: none;
+
+  .logo {
+    font-size: 35px;
+    font-weight: bold;
   }
-  
-  .button {
-    margin: 0 5px;
-    border-radius: 5px;
-    background-color: orange;
-    color: rgb(0, 0, 255);
+
+  .mobileMenuIcon {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
   }
+}
