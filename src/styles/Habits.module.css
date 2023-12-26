@@ -73,3 +73,15 @@ button:hover {
 button:active {
     transform: translate(0em, 0.2em);
 }
+
+.habitH1 {
+    color: #5841d8;
+    font-size: 4rem;
+    font-family: "Celias-Bold";
+    text-shadow: black;
+}
+
+.habitH2{
+    font-family: "Celias-Bold";
+    color: #5841d8;
+}

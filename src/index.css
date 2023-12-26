@@ -6,9 +6,6 @@ body {
     font-family: "Celias-Light", sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
-}
 
 body {
     background-color: #fafaff;
@@ -20,4 +17,12 @@ body {
     src: url("./styles/font/Celias-Light.woff") format("woff"),
         url("./styles/font/Celias-Light.ttf") format("truetype"),
         url("./styles/font/Celias-Light.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Celias-Bold";
+    src: url("./styles/font/Celias-Bold.eot");
+    src: url("./styles/font/Celias-Bold.woff") format("woff"),
+        url("./styles/font/Celias-Bold.ttf") format("truetype"),
+        url("./styles/font/Celias-Bold.woff2") format("woff2");
 }
