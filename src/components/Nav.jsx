@@ -16,6 +16,7 @@ const Nav = () => {
       <nav className={Styles.navbar}>
         <div className={Styles.container}>
           <h1 className={Styles.logo}>FragmentFriends</h1>
+
           <ul
             className={
               mobile ? Styles["nav-links-mobile"] : Styles["nav-links"]
@@ -25,6 +26,9 @@ const Nav = () => {
               <Link className={Styles.link} to="/">
                 Home
               </Link>
+              <div className={Styles.mobileHome}>
+                <span>ost</span>
+              </div>
             </li>
             <li>
               <Link className={Styles.link} to="/habits">
@@ -42,15 +46,18 @@ const Nav = () => {
               </Link>
             </li>
           </ul>
+          <button className={Styles.mobileLoginButton}>Log in</button>
+          <button className={Styles.mobileSignupButton}>Sign up</button>
+
           <button
             id="hamburger-menu"
             className={Styles.mobileMenuIcon}
             onClick={toggleMobileMenu}
           >
             {mobile ? (
-              <IoCloseOutline size={45} color="white" />
+              <IoCloseOutline size={42} color="white" />
             ) : (
-              <IoMenuOutline size={45} color="white" />
+              <IoMenuOutline size={42} color="white" />
             )}
           </button>
           <button className={Styles.loginButton}>Log in</button>

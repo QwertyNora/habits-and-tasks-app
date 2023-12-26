@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Nav from "../components/Nav";
+import Styles from "../styles/NewTasks.module.css";
+import Footer from "../components/Footer";
 
 const NewTask = () => {
   const [tasks, setTasks] = useState(() => {
@@ -50,58 +53,69 @@ const NewTask = () => {
 
   return (
     <>
-      <h1>New Task</h1>
-      <h2>Create New Task</h2>
-      <form onSubmit={handleCreateTask}>
-        <label>
-          Title:
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          Task Type:
-          <select
-            value={taskType}
-            onChange={(e) => setTaskType(e.target.value)}
-          >
-            <option value="">Select Type</option>
-            <option value="work related">Work related</option>
-            <option value="for fun">for fun</option>
-            <option value="Chores">Chores</option>
-          </select>
-        </label>
-        <br />
-        <label>
-          Due Date:
-          <input
-            type="date"
-            value={dueDate}
-            onChange={(e) => setDueDate(e.target.value)}
-          />
-        </label>
-        <br />
+      <Nav />
+      <h1 className={Styles.newTask}>New Task</h1>
+      <p className={Styles.newTask}>Add your new Tasks here!</p>
+      <h2 className={Styles.newTask}>Create New Task</h2>
+      <div className={Styles.testTwo}>
+        <form onSubmit={handleCreateTask}>
+          <div className={Styles.labelContainer}>
+            <label className={Styles.labelNewTask}>
+              Title:
+              <input
+                className={Styles.inputTitle}
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </label>
+            <br />
+            <label className={Styles.labelNewTask}>
+              Task Type:
+              <select
+                value={taskType}
+                onChange={(e) => setTaskType(e.target.value)}
+              >
+                <option value="">Select Type</option>
+                <option value="work related">Work related</option>
+                <option value="for fun">for fun</option>
+                <option value="Chores">Chores</option>
+              </select>
+            </label>
+            <br />
+            <label className={Styles.labelNewTask}>
+              Due Date:
+              <input
+                type="date"
+                value={dueDate}
+                onChange={(e) => setDueDate(e.target.value)}
+              />
+            </label>
+          </div>
+          <br />
+          <div className={Styles.btnContainer}>
+            <button type="button" onClick={handleSuggestRandomActivity}>
+              Get Random Activity
+            </button>
 
-        <button type="button" onClick={handleSuggestRandomActivity}>
-          Get Random Activity
-        </button>
-
-        <button type="submit">Create Task</button>
-        <Link to={{ pathname: "/tasks" }}>
-          <button>See all tasks</button>
-        </Link>
-      </form>
-      {latestTask && (
-        <div>
-          <h2>New Added Task: </h2>
-          <p>Title: {latestTask.title}</p>
-          <p>Task Type: {latestTask.taskType}</p>
-          <p>Due Date: {latestTask.dueDate}</p>
+            <button type="submit">Create Task</button>
+            <Link to={{ pathname: "/tasks" }}>
+              <button>See all tasks</button>
+            </Link>
+          </div>
+        </form>
+        <div className={Styles.newTaskContainer}>
+          {latestTask && (
+            <div className={Styles.task}>
+              <h2>New Added Task: </h2>
+              <p>Title: {latestTask.title}</p>
+              <p>Task Type: {latestTask.taskType}</p>
+              <p>Due Date: {latestTask.dueDate}</p>
+            </div>
+          )}
         </div>
-      )}
+      </div>
+      <Footer />
     </>
   );
 };
