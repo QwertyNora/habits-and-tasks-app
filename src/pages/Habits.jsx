@@ -93,7 +93,7 @@ const Habits = () => {
       <div className={Styles.habitsWrapper}>
         <div className={Styles.habitsText}>
           <h3>TRACK YOUR HABITS</h3>
-          <h1>Habits</h1>
+          <h1 className={Styles.habitH1}>Habits</h1>
           <p>
             Here is an overview of your current habits. You're able to keep
             track of the priority and streak of your different habits. Stay up
@@ -148,7 +148,7 @@ const Habits = () => {
         <div className={Styles.habitsContainer}>
           {getSortedHabits().map((habit, index) => (
             <div className={Styles.habit} key={index}>
-              <h2>{habit.title}</h2>
+              <h2 className={Styles.habitH2} >{habit.title}</h2>
               <ul>
                 <li>
                   Priority:
@@ -156,10 +156,10 @@ const Habits = () => {
                 </li>
                 <li>
                   Streak:
-                  <button className={Button.button} onClick={() => decrementStreak(habit.id)}>-</button>
+                  <button className={Button.buttonLowKey} onClick={() => decrementStreak(habit.id)}>-</button>
                   {habit.streak}
-                  <button className={Button.button} onClick={() => incrementStreak(habit.id)}>+</button>
-                  <button className={Button.button} onClick={() => resetStreak(habit.id)}>Reset</button>
+                  <button className={Button.buttonLowKey} onClick={() => incrementStreak(habit.id)}>+</button>
+                  <button className={Button.buttonLowKey} onClick={() => resetStreak(habit.id)}>Reset</button>
                 </li>
               </ul>
             </div>
