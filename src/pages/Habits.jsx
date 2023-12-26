@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import { getFromLocalStorage, setInLocalStorage } from "../HelperFunctions";
 import { Link } from "react-router-dom";
 import Styles from "../styles/Habits.module.css";
-import Button from "../styles/Button.module.css"
+import Button from "../styles/Button.module.css";
 
 const Habits = () => {
   const [habits, setHabits] = useState(getFromLocalStorage("habits"));
@@ -148,7 +148,7 @@ const Habits = () => {
         <div className={Styles.habitsContainer}>
           {getSortedHabits().map((habit, index) => (
             <div className={Styles.habit} key={index}>
-              <h2 className={Styles.habitH2} >{habit.title}</h2>
+              <h2 className={Styles.habitH2}>{habit.title}</h2>
               <ul>
                 <li>
                   Priority:
@@ -156,19 +156,37 @@ const Habits = () => {
                 </li>
                 <li>
                   Streak:
-                  <button className={Button.buttonLowKey} onClick={() => decrementStreak(habit.id)}>-</button>
+                  <button
+                    className={Button.buttonLowKey}
+                    onClick={() => decrementStreak(habit.id)}
+                  >
+                    -
+                  </button>
                   {habit.streak}
-                  <button className={Button.buttonLowKey} onClick={() => incrementStreak(habit.id)}>+</button>
-                  <button className={Button.buttonLowKey} onClick={() => resetStreak(habit.id)}>Reset</button>
+                  <button
+                    className={Button.buttonLowKey}
+                    onClick={() => incrementStreak(habit.id)}
+                  >
+                    +
+                  </button>
+                  <button
+                    className={Button.buttonLowKey}
+                    onClick={() => resetStreak(habit.id)}
+                  >
+                    Reset
+                  </button>
                 </li>
               </ul>
             </div>
           ))}
         </div>
       </div>
-      <Link to="/NewHabit">
-        <button>Add New Habit</button>
+      <div className={Styles.addDiv} >
+        <Link to="/NewHabit">
+        <button className={Styles.addBtn}>Add New Habit</button>
       </Link>
+      </div>
+      
       <Footer />
     </>
   );
