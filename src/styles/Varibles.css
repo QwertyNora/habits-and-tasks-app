@@ -1,10 +1,13 @@
+
+
 :root {
   --color-text: #fff;
-  --color-primary: #fff;
+  --color-primary: #5841d8;
   --color-secondary: #fff;
   --color-dark: #fff;
   --color-bg: #fff;
   --bgcolor-nav: #5a189a;
+  --button-color: #5841d8;
 }
 
 :root {
