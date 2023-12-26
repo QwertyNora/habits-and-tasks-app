@@ -1,4 +1,4 @@
-@import './Varibles.css';
+@import "./Varibles.css";
 
 * {
   font-family: "Poppins", sans-serif;
@@ -40,6 +40,20 @@
   gap: 1rem;
 }
 
+.inputTitle {
+  margin: 1rem;
+  color: #8707ff;
+  border: 2px solid #8707ff;
+  border-radius: 50px;
+  padding: 10px 25px;
+  background: transparent;
+  max-width: 190px;
+}
+
+.inputTitle:active {
+  box-shadow: 2px 2px 15px #8707ff inset;
+}
+
 .addedTaskContainer {
   display: flex;
   justify-content: center;
@@ -54,6 +68,7 @@
 
 .newTaskContainer {
   display: flex;
+  justify-content: center;
   flex-direction: column;
   gap: 2rem;
   padding: 3rem;
