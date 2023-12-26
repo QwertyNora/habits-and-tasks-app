@@ -4,6 +4,8 @@
     align-items: center;
 }
 
+
+
 .habitsText{
     display: flex;
     flex-direction: column;
@@ -16,8 +18,14 @@
     display: flex;
     gap: 2rem;
     padding: 1rem;
-    border: 1px solid rgb(209, 91, 91);
+    /* border: 1px solid rgb(209, 91, 91); */
 }
+
+/* .filterText{
+    display: flex;
+    align-self: flex-start;
+    margin-left: 20%;
+} */
 
 .habitsContainer {
     display: flex;

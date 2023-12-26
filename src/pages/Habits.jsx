@@ -91,11 +91,17 @@ const Habits = () => {
       <Nav />
       <div className={Styles.habitsWrapper}>
         <div className={Styles.habitsText}>
-          <h3>Track your habits</h3>
-        <h1>Habits</h1>
-        <p>Here is an overview of your current habits. You areable to keep track of the priority and streak of your different  habits. Stay up to date and edit your streak! </p>
+          <h3>TRACK YOUR HABITS</h3>
+          <h1>Habits</h1>
+          <p>
+            Here is an overview of your current habits. You're able to keep
+            track of the priority and streak of your different habits. Stay up
+            to date and edit your streak!{" "}
+          </p>
         </div>
-        
+        {/* <div className={Styles.filterText}>
+          <h3>Filter or sort your habits:</h3>
+        </div> */}
         <div className={Styles.selectContainer}>
           <div>
             <label htmlFor="filterPriority">Filter by Priority:</label>
