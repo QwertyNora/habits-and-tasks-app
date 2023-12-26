@@ -1,0 +1,32 @@
+.habitsWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.selectContainer{
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+    border: 1px solid rgb(209, 91, 91);
+}
+
+.habitsContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3rem;
+    border: 1px solid rgb(15, 78, 173);
+    min-width: 60%;
+    max-width: 90%;
+}
+
+label {
+    margin-right: 0.5rem;
+}
+
+.habit{
+    border: 1px solid rgb(163, 163, 163);
+    padding: 10rem;
+    color: red;
+}

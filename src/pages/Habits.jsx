@@ -3,6 +3,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { getFromLocalStorage, setInLocalStorage } from "../HelperFunctions";
 import { Link } from "react-router-dom";
+import Styles from "../styles/Habits.module.css";
 
 const Habits = () => {
   const [habits, setHabits] = useState(getFromLocalStorage("habits"));
@@ -89,56 +90,70 @@ const Habits = () => {
   return (
     <>
       <Nav />
-      <div>
+      <div className={Styles.habitsWrapper}>
         <h2>Habits:</h2>
-        <label htmlFor="filterPriority">Filter by Priority:</label>
-        <select
-          id="filterPriority"
-          name="filterPriority"
-          value={filterPriority}
-          onChange={handleFilterPriority}
-        >
-          <option value="All">All</option>
-          <option value="High">High</option>
-          <option value="Mid">Mid</option>
-          <option value="Low">Low</option>
-        </select>
-        <br />
-        <label htmlFor="sortPriority">Sort by Priority:</label>
-        <select
-          id="sortPriority"
-          name="sortPriority"
-          onChange={handleSortPriority}
-        >
-          <option value="">Select</option>
-          <option value="HighLow">High to Low</option>
-          <option value="LowHigh">Low to High</option>
-        </select>
-        <br />
-        <label htmlFor="sortStreak">Sort by Streak:</label>
-        <select id="sortStreak" name="sortStreak" onChange={handleSortStreak}>
-          <option value="">Select</option>
-          <option value="HighLow">High to Low</option>
-          <option value="LowHigh">Low to High</option>
-        </select>
-        {getSortedHabits().map((habit, index) => (
-          <div key={index}>
-            <h2>{habit.title}</h2>
-            <ul>
-              <li>
-                Priority:
-                {habit.priority}
-              </li>
-              <li>
-                Streak:
-                <button onClick={() => decrementStreak(habit.id)}>-</button>
-                {habit.streak}
-                <button onClick={() => incrementStreak(habit.id)}>+</button>
-                <button onClick={() => resetStreak(habit.id)}>Reset</button>
-              </li>
-            </ul>
+        <div className={Styles.selectContainer}>
+          <div>
+            <label htmlFor="filterPriority">Filter by Priority:</label>
+            <select
+              id="filterPriority"
+              name="filterPriority"
+              value={filterPriority}
+              onChange={handleFilterPriority}
+            >
+              <option value="All">All</option>
+              <option value="High">High</option>
+              <option value="Mid">Mid</option>
+              <option value="Low">Low</option>
+            </select>
           </div>
-        ))}
+
+          <div>
+            <label htmlFor="sortPriority">Sort by Priority:</label>
+            <select
+              id="sortPriority"
+              name="sortPriority"
+              onChange={handleSortPriority}
+            >
+              <option value="">Select</option>
+              <option value="HighLow">High to Low</option>
+              <option value="LowHigh">Low to High</option>
+            </select>
+          </div>
+
+          <div>
+            <label htmlFor="sortStreak">Sort by Streak:</label>
+            <select
+              id="sortStreak"
+              name="sortStreak"
+              onChange={handleSortStreak}
+            >
+              <option value="">Select</option>
+              <option value="HighLow">High to Low</option>
+              <option value="LowHigh">Low to High</option>
+            </select>
+          </div>
+        </div>
+        <div className={Styles.habitsContainer}>
+          {getSortedHabits().map((habit, index) => (
+            <div className={Styles.habit} key={index}>
+              <h2>{habit.title}</h2>
+              <ul>
+                <li>
+                  Priority:
+                  {habit.priority}
+                </li>
+                <li>
+                  Streak:
+                  <button onClick={() => decrementStreak(habit.id)}>-</button>
+                  {habit.streak}
+                  <button onClick={() => incrementStreak(habit.id)}>+</button>
+                  <button onClick={() => resetStreak(habit.id)}>Reset</button>
+                </li>
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
       <Link to="/NewHabit">
         <button>Add New Habit</button>
@@ -173,3 +188,16 @@ export default Habits;
 //   setInLocalStorage("habits", updatedHabits);
 //   setHabits(updatedHabits);
 // };
+
+// TO- DO:
+// Hitta iconer till knappar
+// Lägg till en kolumn för "share on socials" kolumn i footer
+// Ta inspo av footern i Kraken
+
+// Google play:
+// https://www.freepik.com/icon/google-play_220782
+// https://www.freepik.com/icon/apple-logo_747#fromView=search&term=apple&track=ais&page=1&position=0&uuid=7239c66b-ebd4-4698-a611-a2ca3025fdd1
+
+// Socials:
+// https://boxicons.com
+// https://boxicons.com/usage
