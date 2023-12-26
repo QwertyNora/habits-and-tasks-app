@@ -100,8 +100,11 @@ const Friends = () => {
   return (
     <>
       <Nav />
+      <div className={Styles.gridContainer}>
+      <div className={Styles.girdItem2}>
       <h1>Friends</h1>
-      <div>
+      </div>
+      <div className={Styles.girdItem3}>
         <select onChange={handleGenderFilterChange}>
           <option value="">Gender:</option>
           <option value="male">Male</option>
@@ -122,18 +125,27 @@ const Friends = () => {
           <option value="lastName">Last Name</option>
         </select>
       </div>
+      <div className={Styles.girdItem1}>
+        <div className={Styles.addFriends}>
       <button onClick={addFriend}>Add new friend</button>
+      </div>
       <ul>
         {getFilteredFriends().map((friend, index) => (
           <li key={index} onClick={() => openModal(friend)}>
+            <div className={Styles.iconImg}>
             <img src={friend.picture.thumbnail} alt="User Thumbnail" />
+            </div>
             {`${friend.name.first} ${friend.name.last}`}
+            <div className={Styles.removeBtn}>
             <button onClick={(event) => removeFriend(index, event)}>
               Remove friend
             </button>
+            </div>
           </li>
         ))}
       </ul>
+      </div>
+      </div>
       {isModalOpen && (
         <div className={Styles.modal}>
           <div className={Styles.modalcontent}>

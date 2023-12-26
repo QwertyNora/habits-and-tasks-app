@@ -1,6 +1,4 @@
 
-
-
 .modal {
     position: fixed;
     left: 0;
@@ -34,3 +32,51 @@
     max-width: 100%;
     height: auto;
   }
+
+  .gridContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 10px;
+  }
+
+  .girdItem1{
+    grid-column: 2;
+    grid-row: 1;
+    border: solid black 2px;
+    margin: 20px;
+    margin-top: 100px;
+    border-radius: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .girdItem2 {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    justify-content: end;
+    margin-top: 50px;
+  }
+
+  .girdItem3 {
+    grid-column: 3;
+    grid-row: 1;
+    margin-top: 50px;
+    
+  }
+
+  .removeBtn {
+    display: flex;
+    justify-content: end;
+  }
+
+  .addFriends {
+    padding: 20px;
+  }
+
+  /* .iconImg {
+    border: solid 2px black;
+    border-radius: 50px;
+  } */
+  
