@@ -77,7 +77,6 @@ const Habits = () => {
         return prioB - prioA;
       });
     }
-    console.log(sortedHabits);
     if (sortStreak === "HighLow") {
       sortedHabits.sort((a, b) => b.streak - a.streak);
     } else if (sortStreak === "LowHigh") {
@@ -91,7 +90,12 @@ const Habits = () => {
     <>
       <Nav />
       <div className={Styles.habitsWrapper}>
-        <h2>Habits:</h2>
+        <div className={Styles.habitsText}>
+          <h3>Track your habits</h3>
+        <h1>Habits</h1>
+        <p>Here is an overview of your current habits. You areable to keep track of the priority and streak of your different  habits. Stay up to date and edit your streak! </p>
+        </div>
+        
         <div className={Styles.selectContainer}>
           <div>
             <label htmlFor="filterPriority">Filter by Priority:</label>

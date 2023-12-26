@@ -4,6 +4,14 @@
     align-items: center;
 }
 
+.habitsText{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 60%;
+    margin: 3.5rem;
+}
+
 .selectContainer {
     display: flex;
     gap: 2rem;
