@@ -65,6 +65,7 @@ const NewTask = () => {
               <input
                 className={Styles.inputTitle}
                 type="text"
+                placeholder="Add Title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
@@ -83,7 +84,7 @@ const NewTask = () => {
               </select>
             </label>
             <br />
-            <label className={Styles.labelNewTask}>
+            <label className={Styles.input}>
               Due Date:
               <input
                 type="date"
@@ -108,8 +109,11 @@ const NewTask = () => {
           {latestTask && (
             <div className={Styles.task}>
               <h2>New Added Task: </h2>
+              <br />
               <p>Title: {latestTask.title}</p>
+              <br />
               <p>Task Type: {latestTask.taskType}</p>
+              <br />
               <p>Due Date: {latestTask.dueDate}</p>
             </div>
           )}
