@@ -1,4 +1,4 @@
-@import './Varibles.css';
+@import "./Varibles.css";
 
 .habitsWrapper {
     display: flex;
@@ -9,15 +9,13 @@
     background-position: bottom right;
 }
 
-
-
 .habitsText {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 60%;
-    margin: 3.5rem;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 60%;
+  margin: 3.5rem;
+  gap: 1rem;
 }
 
 .selectContainer {
@@ -36,61 +34,68 @@
 }
 
 label {
-    margin-right: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .habit {
-    display: flex;
-    justify-content: space-around;
-    padding: 2rem;
-    color: rgb(68, 67, 67);
-    flex-direction: row;
-    border-radius: 7px;
-    border: 1px solid rgba(255, 255, 255, 0.437);
-    background: #fff;
-    box-shadow: 0px 10px 19px -3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+  color: rgb(68, 67, 67);
+  flex-direction: row;
+  border-radius: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.437);
+  background: #fff;
+  box-shadow: 0px 10px 19px -3px rgba(0, 0, 0, 0.1);
 }
 
 .addDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-items: center;
-    margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  margin-bottom: 5rem;
 }
 
 button {
-    font-size: 12px;
-    padding: 0.5em 2em;
-    border: transparent;
-    box-shadow: 2px 2px 4px rgba(39, 39, 39, 0.4);
-    background: var(--button-color);
-    color: white;
-    border-radius: 10px;
-    margin: 1rem;
+  font-size: 12px;
+  padding: 0.5em 2em;
+  border: transparent;
+  box-shadow: 2px 2px 4px rgba(39, 39, 39, 0.4);
+  background: var(--button-color);
+  color: white;
+  border-radius: 10px;
+  margin: 1rem;
 }
 
 button:hover {
-    background: rgb(2, 0, 36);
-    background-image: linear-gradient(to right top, #5841d8, #614bde, #6a55e3, #735ee9, #7c68ee);
+  background: rgb(2, 0, 36);
+  background-image: linear-gradient(
+    to right top,
+    #5841d8,
+    #614bde,
+    #6a55e3,
+    #735ee9,
+    #7c68ee
+  );
 }
 
 button:active {
-    transform: translate(0em, 0.2em);
+  transform: translate(0em, 0.2em);
 }
 
 .habitH1 {
-    color: #5841d8;
-    font-size: 4rem;
-    font-family: "Celias-Bold";
-    text-shadow: black;
+  color: #5841d8;
+  font-size: 4rem;
+  font-family: "Celias-Bold";
+  text-shadow: black;
 }
 
 .habitH2 {
-    font-family: "Celias-Bold";
-    color: #5841d8;
+  font-family: "Celias-Bold";
+  color: #5841d8;
 }
 
 .addBtn {
-    font-size: 16px;
+  font-size: 16px;
 }

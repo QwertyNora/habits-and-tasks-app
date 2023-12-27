@@ -62,9 +62,6 @@ const NewTask = () => {
 
           <h1 className={Styles.newTaskH1}>New task</h1>
           <p>On this page you can add a new Task!</p>
-          <div className={Styles.bgImage}>
-            <img className={Styles.svgImage} src={bgimage} alt="" />
-          </div>
         </div>
         <div className={Styles.testTwo}>
           <form onSubmit={handleCreateTask}>
@@ -84,6 +81,7 @@ const NewTask = () => {
               <label className={Styles.labelNewTask}>
                 Task Type:
                 <select
+                  className={Styles.taskTypeSelect}
                   value={taskType}
                   onChange={(e) => setTaskType(e.target.value)}
                 >
@@ -98,6 +96,7 @@ const NewTask = () => {
               <label className={Styles.input}>
                 Due Date:
                 <input
+                  className={Styles.dueDateSelect}
                   type="date"
                   value={dueDate}
                   onChange={(e) => setDueDate(e.target.value)}
