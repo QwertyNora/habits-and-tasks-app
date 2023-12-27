@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 import Styles from "../styles/Nav.module.css";
 import { IoCloseOutline } from "react-icons/io5";
 import { IoMenuOutline } from "react-icons/io5";
-import { FaClipboardList, FaClipboardCheck, FaUserFriends } from "react-icons/fa";
+import {
+  FaClipboardList,
+  FaClipboardCheck,
+  FaUserFriends,
+} from "react-icons/fa";
 import { MdOutlineTaskAlt } from "react-icons/md";
 import { CiViewList } from "react-icons/ci";
 
@@ -34,18 +38,20 @@ const Nav = () => {
               </div>
             </li>
             <li>
-              <Link className={Styles.link} to="/habits"><CiViewList />
+              <Link className={Styles.link} to="/habits">
+                <CiViewList />
                 Habits
               </Link>
             </li>
             <li>
               <Link className={Styles.link} to="/tasks">
-              <MdOutlineTaskAlt />
+                <MdOutlineTaskAlt />
                 Tasks
               </Link>
             </li>
             <li>
-              <Link className={Styles.link} to="/friends"><FaUserFriends />
+              <Link className={Styles.link} to="/friends">
+                <FaUserFriends />
                 Friends
               </Link>
             </li>
