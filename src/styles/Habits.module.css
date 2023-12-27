@@ -1,9 +1,12 @@
 @import "./Varibles.css";
 
 .habitsWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(../pics/undraw_team_up_re_84ok.svg);
+    background-repeat: no-repeat;
+    background-position: bottom right;
 }
 
 .habitsText {
@@ -16,25 +19,18 @@
 }
 
 .selectContainer {
-  display: flex;
-  gap: 2rem;
-  padding: 1rem;
-  /* border: 1px solid rgb(209, 91, 91); */
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
 }
 
-/* .filterText{
-    display: flex;
-    align-self: flex-start;
-    margin-left: 20%;
-} */
-
 .habitsContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  padding: 3rem;
-  min-width: 60%;
-  max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3rem;
+    min-width: 50%;
+    max-width: 70%;
 }
 
 label {

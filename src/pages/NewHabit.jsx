@@ -91,7 +91,7 @@ const NewHabit = () => {
               onChange={(e) => setStreak(e.target.value)}
             />
             <br />
-            <label htmlFor="priority">Priority</label>
+            <label htmlFor="priority">Priority:</label>
             <select
               value={priority}
               id="priority"

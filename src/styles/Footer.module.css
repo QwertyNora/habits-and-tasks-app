@@ -1,31 +1,49 @@
 @import './Varibles.css';
 
-.footer {
-  background-color: whitesmoke;
-  padding: 30px 0;
+.container {
+  max-width: 1170px;
+  margin: auto;
 }
 
-.footer-col {
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+}
+
+.footer {
+  background-color: #5841d8;
+  padding: 30px 0;
+  height: 170px;
+  bottom: 0;
+  width: 100%;
+}
+
+.footerCol {
   width: 25%;
   padding: 0 15px;
 }
 
-.footer-col h4 {
-  font-size: 18px;
+.footerCol h3 {
   color: #ffffff;
-  text-transform: capitalize;
-  margin-bottom: 20px;
+  font-size: 1.5rem;
 }
 
 .footer a {
   text-decoration: none;
-  color: black;
+  color: rgb(255, 255, 255);
   margin: 10px 0;
 }
+
 .footer-col h3,
 .footer-col ul {
   padding-left: 50px;
 }
+
 .footer-col h3 {
   padding-left: 15px;
 }
@@ -33,9 +51,9 @@
 .footer a:hover {
   color: #f47820;
   font-weight: 100;
-  font-size: 2rem;
+  font-size: 1.2rem;
 }
 
-.footer h3:hover {
-  color: #f47820;
-}
+/* .footer h3:hover {
+  color: #392a91;
+} */

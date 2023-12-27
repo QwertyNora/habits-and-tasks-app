@@ -1,5 +1,12 @@
 @import './Varibles.css';
 
+
+/* body {
+    background-image: url(../pics/undraw_team_up_re_84ok.svg);
+    background-repeat: no-repeat;
+    background-position: right 0.5rem bottom 200px;
+} */
+
 .habitsWrapper {
     display: flex;
     flex-direction: column;
@@ -32,6 +39,7 @@
 
 .inputTitle {
     margin: 1rem;
+    margin-bottom: 2rem;
     color: #5841d8;
     border: 2px solid #5841d8;
     border-radius: 50px;
@@ -58,7 +66,16 @@
     box-shadow: 0px 10px 19px -3px rgba(0, 0, 0, 0.1);
 }
 
+input{
+    margin-bottom: 2rem;
+}
+
+label{
+    color: #2d1a99;
+}
+
 .createHabitBtn {
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
