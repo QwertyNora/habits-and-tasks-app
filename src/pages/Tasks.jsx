@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
-
 import styles from "../styles/Tasks.module.css";
 
 const Tasks = () => {
@@ -42,8 +41,6 @@ const Tasks = () => {
     // Filtrerar och uppdaterar listan av uppgifter baserat på den valda uppgiftstypen
     filterTasks(selectedTaskType);
   };
-
-  
 
   const filterTasks = (taskType) => {
     let filtered =
@@ -120,97 +117,118 @@ const Tasks = () => {
   return (
     <>
       <Nav />
-      <div className="tasks-container">
-        <h1>Tasks</h1>
-        <label>
-          Filter by Task Type:
-          <select value={selectedTaskType} onChange={handleTaskTypeChange}>
-            <option value="All">All</option>
-            <option value="work related">work related</option>
-            <option value="For fun">For fun</option>
-            <option value="Chores">Chores</option>
-          </select>
-        </label>
-        <div className="task-list">
-          <div className={styles.sortButtons}>
-            <button onClick={() => handleSort("title")}>
-              Sort by Title{" "}
-              {sortOrder.field === "title" &&
-                (sortOrder.ascending ? "A-B" : "B-A")}
-            </button>
-            <button onClick={() => handleSort("dueDate")}>
-              Sort by Due Date-
-              {sortOrder.field === "dueDate" &&
-                (sortOrder.ascending ? "Closest" : "Furthest")}
-            </button>
+      <div className={styles.imgWrapper}>
+        <div className={styles.taskWrapper}>
+          <div className={styles.tasksText}>
+            <h3>TRACK YOUR HABITS</h3>
+            <h1 className={styles.taskH1}>Tasks</h1>
+            <p>Here is an overview of your current tasks.</p>
           </div>
-          {filteredTasks.map((task, index) => (
-            <div
-              key={index}
-              className={
-                styles.taskItem +
-                (task.completed ? ` ${styles.completedTask}` : "")
-              }
-            >
-              {editingTaskIndex === index ? (
-                <div>
-                  <input
-                    type="text"
-                    value={editedTask.title}
-                    onChange={(e) => handleEditChange(e, "title")}
-                  />
-                  <select
-                    value={editedTask.taskType}
-                    onChange={(e) => handleEditChange(e, "taskType")}
-                  >
-                    <option value="work related">Jobbrelaterat</option>
-                    <option value="for fun">fun</option>
-                    <option value="Chores">Chores</option>
-                  </select>
-                  <input
-                    type="date"
-                    value={editedTask.dueDate}
-                    onChange={(e) => handleEditChange(e, "dueDate")}
-                  />
-                  <button onClick={() => handleSaveEdit(index)}>Save</button>
-                  <button onClick={handleCancelEdit}>Cancel</button>
-                </div>
-              ) : (
-                <>
-                  <h3 className={task.completed ? styles.completedTask : ""}>
-                    {task.title}
-                  </h3>
-                  <div className={styles.taskDetails}>
-                    <p>
-                      <strong>Task Type:</strong> {task.taskType}
-                    </p>
-                    <p>
-                      <strong>Due Date:</strong> {task.dueDate}
-                    </p>
-                  </div>
-                  <div className={styles.taskActions}>
-                    <input
-                      type="checkbox"
-                      value={task.completed}
-                      onChange={() => handleTaskCompleteToggle(index)}
-                    />{" "}
-                    Complete task
-                    <br />
-                    <button onClick={() => handleDeleteTask(index)}>
-                      Delete
-                    </button>
-                    <button onClick={() => handleEditTask(index)}>
-                      Edit Task
-                    </button>
-                  </div>
-                </>
-              )}
+
+          <label>
+            <div className={styles.selectContainer}>
+              Filter by Task Type:
+              <select
+                className={styles.filterTaskType}
+                value={selectedTaskType}
+                onChange={handleTaskTypeChange}
+              >
+                <option value="All">All</option>
+                <option value="work related">Work related</option>
+                <option value="For fun">For fun</option>
+                <option value="Chores">Chores</option>
+              </select>
             </div>
-          ))}
+          </label>
+          <div className={styles.tasksContainer}>
+            <div className={styles.sortButtons}>
+              <button onClick={() => handleSort("title")}>
+                Sort by Title{" "}
+                {sortOrder.field === "title" &&
+                  (sortOrder.ascending ? "A-B" : "B-A")}
+              </button>
+              <button onClick={() => handleSort("dueDate")}>
+                Sort by Due Date-
+                {sortOrder.field === "dueDate" &&
+                  (sortOrder.ascending ? "Closest" : "Furthest")}
+              </button>
+            </div>
+            {filteredTasks.map((task, index) => (
+              <div
+                key={index}
+                className={
+                  styles.taskItem +
+                  (task.completed ? ` ${styles.completedTask}` : "")
+                }
+              >
+                {editingTaskIndex === index ? (
+                  <div>
+                    <input
+                      type="text"
+                      value={editedTask.title}
+                      onChange={(e) => handleEditChange(e, "title")}
+                    />
+                    <select
+                      value={editedTask.taskType}
+                      onChange={(e) => handleEditChange(e, "taskType")}
+                    >
+                      <option value="work related">Work related</option>
+                      <option value="for fun">Fun</option>
+                      <option value="Chores">Chores</option>
+                    </select>
+                    <input
+                      type="date"
+                      value={editedTask.dueDate}
+                      onChange={(e) => handleEditChange(e, "dueDate")}
+                    />
+                    <button onClick={() => handleSaveEdit(index)}>Save</button>
+                    <button onClick={handleCancelEdit}>Cancel</button>
+                  </div>
+                ) : (
+                  <>
+                    <h3 className={task.completed ? styles.completedTask : ""}>
+                      {task.title}
+                    </h3>
+                    <div className={styles.taskDetails}>
+                      <p>
+                        <strong>Task Type:</strong> {task.taskType}
+                      </p>
+                      <p>
+                        <strong>Due Date:</strong> {task.dueDate}
+                      </p>
+                    </div>
+                    <div className={styles.taskActions}>
+                      <input
+                        type="checkbox"
+                        value={task.completed}
+                        onChange={() => handleTaskCompleteToggle(index)}
+                      />{" "}
+                      Complete task
+                      <br />
+                      <button
+                        className={styles.buttonLowKey}
+                        onClick={() => handleDeleteTask(index)}
+                      >
+                        Delete
+                      </button>
+                      <button
+                        className={styles.buttonLowKey}
+                        onClick={() => handleEditTask(index)}
+                      >
+                        Edit Task
+                      </button>
+                    </div>
+                  </>
+                )}
+              </div>
+            ))}
+          </div>
+          <div className={styles.addDiv}>
+            <Link to={{ pathname: "/NewTask", state: { tasks } }}>
+              <button className={styles.addBtn}>Create new task</button>
+            </Link>
+          </div>
         </div>
-        <Link to={{ pathname: "/NewTask", state: { tasks } }}>
-          <button>Create new task</button>
-        </Link>
       </div>
       <Footer />
     </>
