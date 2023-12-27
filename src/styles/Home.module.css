@@ -1,42 +1,15 @@
 @import './Varibles.css';
 
-.headLine {
-  margin-right: auto;
-  font-size: 25px;
-  font-family: monospace;
-  border: 2px solid black;
-  margin-right: 850px;
-  margin-top: 15px;
-  border-radius: 15px;
-}
-
 .pText {
   font-size: 25px;
-  border: 2px solid black;
-  border-radius: 15px;
   margin-top: 15px;
   flex: 1;
-}
-
-.myImage img {
-  width: 1000px;
-  height: auto;
-  margin-top: 15px;
-  border-radius: 15px;
-  flex: 1;
-}
-
-.toplist {
   display: flex;
-  justify-content: space-around;
-}
-
-.listItems {
-  border: 2px solid black;
-  border-radius: 15px;
-  background-color: rgb(151, 151, 255);
-  padding: 15px;
-  font-size: 25px;
+  flex-direction: column;
+  padding-top: 100px;
+  padding-left: 200px;
+  margin-right: 800px;
+  padding-bottom: 150px;
 }
 
 .contentContainer {
@@ -45,5 +18,75 @@
   gap: 50px;
 }
 
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+}
 
+.gridItem1, .gridItem2, .gridItem3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  border-radius: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.437);
+  background: #fff;
+  box-shadow: 0px 10px 19px -3px rgba(0,0,0,0.1);
+  margin: 50px;
+}
+
+.gridItem1 ul, .gridItem2 ul, .gridItem3 ul {
+display: flex;
+flex-direction: column;
+width: 100%;
+}
+
+.gridItem1 li, .gridItem2 li, .gridItem3 li {
+  display: flex;
+  justify-content: center;
+}
+
+/* .tasksWrapper {
+  background-image: url(../pics/scrum-board-outline.svg);
+  background-repeat: no-repeat;
+  background-position: right 0px bottom 100px ;
+} */
+
+.gridItem1 img, .gridItem2 img, .gridItem3 img {
+  width: 100px;
+  height: auto;
+  margin-left: 20px;
+}
+
+.listImageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* .backgroundImage {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+} */
+
+.textAndImage {
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  gap: 20px; 
+  padding-left: ;
+}
+
+.textAndImage p {
+  flex: 1; 
+  margin-right: 20px; 
+}
+
+.textAndImage img {
+  width: auto; 
+  height: 400px; 
+}
 
