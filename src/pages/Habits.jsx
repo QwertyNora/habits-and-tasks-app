@@ -181,12 +181,12 @@ const Habits = () => {
           ))}
         </div>
       </div>
-      <div className={Styles.addDiv} >
+      <div className={Styles.addDiv}>
         <Link to="/NewHabit">
-        <button className={Styles.addBtn}>Add New Habit</button>
-      </Link>
+          <button className={Styles.addBtn}>Add New Habit</button>
+        </Link>
       </div>
-      
+
       <Footer />
     </>
   );

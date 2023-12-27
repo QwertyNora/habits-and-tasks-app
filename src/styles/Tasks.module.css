@@ -1,5 +1,147 @@
-@import './Varibles.css';
+@import "./Varibles.css";
+
+.imgWrapper {
+  background-image: url(../pics/scrum-board-two-color.svg);
+
+  background-repeat: no-repeat;
+  background-position: left 32rem bottom 22px;
+}
 
 .completedTask {
   text-decoration: line-through;
+}
+
+.taskWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tasksText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 60%;
+  margin: 3.5rem;
+  gap: 1rem;
+}
+
+.taskH1 {
+  color: #5841d8;
+  font-size: 4rem;
+  font-family: "Celias-Bold";
+  text-shadow: black;
+}
+
+.selectContainer {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+  /* border: 1px solid rgb(209, 91, 91); */
+}
+
+.filterTaskType {
+  font-size: 1.2rem;
+}
+
+.habitsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 3rem;
+  min-width: 60%;
+  max-width: 90%;
+}
+
+.taskItem {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.5rem;
+  padding: 2rem;
+  color: rgb(68, 67, 67);
+  flex-direction: row;
+  border-radius: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.437);
+  background: #fff;
+  box-shadow: 0px 10px 19px -3px rgba(0, 0, 0, 0.1);
+  gap: 1rem;
+}
+
+.completedTask {
+  color: #5841d8;
+}
+
+.addDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  margin-bottom: 5rem;
+}
+
+.addBtn {
+  font-size: 16px;
+}
+
+button {
+  font-size: 16px;
+  padding: 0.5em 2em;
+  border: transparent;
+  box-shadow: 2px 2px 4px rgba(39, 39, 39, 0.4);
+  background: var(--button-color);
+  color: white;
+  border-radius: 10px;
+  margin: 1rem;
+}
+
+button:hover {
+  background: rgb(2, 0, 36);
+  background-image: linear-gradient(
+    to right top,
+    #5841d8,
+    #614bde,
+    #6a55e3,
+    #735ee9,
+    #7c68ee
+  );
+}
+
+button:active {
+  transform: translate(0em, 0.2em);
+}
+
+.buttonLowKey {
+  font-size: 12px;
+  padding: 0.5em 2em;
+  border: transparent;
+  box-shadow: 2px 2px 4px rgba(39, 39, 39, 0.597);
+  background: #fafaff;
+  color: var(--button-color);
+  border-radius: 50px;
+  margin: 1rem;
+  box-shadow: 2px 2px 4px rgba(212, 212, 212, 0.844);
+  border: 1px solid #ededed;
+}
+
+.buttonLowKey:hover {
+  background: rgb(2, 0, 36);
+  background-image: linear-gradient(
+    20deg,
+    hsl(240deg 100% 99%) 0%,
+    hsl(240deg 100% 99%) 11%,
+    hsl(240deg 100% 99%) 22%,
+    hsl(240deg 100% 99%) 33%,
+    hsl(240deg 100% 99%) 44%,
+    hsl(240deg 100% 100%) 56%,
+    hsl(240deg 100% 100%) 67%,
+    hsl(240deg 100% 100%) 78%,
+    hsl(240deg 100% 100%) 89%,
+    hsl(0deg 0% 100%) 100%
+  );
+  box-shadow: 2px 2px 4px rgba(212, 212, 212, 0.844);
+  border: 1px solid rgb(237, 237, 237) ddd;
+}
+
+.buttonLowKey:active {
+  transform: translate(0em, 0.2em);
 }
