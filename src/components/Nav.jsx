@@ -32,7 +32,7 @@ const Nav = () => {
           >
             <li>
               <Link className={Styles.link} to="/">
-              <IoHome /> Home
+                <IoHome /> Home
               </Link>
               <div className={Styles.mobileHome}>
                 <span>ost</span>

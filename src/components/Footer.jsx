@@ -14,10 +14,10 @@ const Footer = () => {
               <h3>Habits</h3>
               <ul>
                 <li>
-                <Link to="/Habits">Current habits</Link>
+                  <Link to="/Habits">Current habits</Link>
                 </li>
                 <li>
-                <Link to="/NewHabit">Add new habit</Link>
+                  <Link to="/NewHabit">Add new habit</Link>
                 </li>
               </ul>
             </div>
@@ -25,10 +25,10 @@ const Footer = () => {
               <h3>Tasks</h3>
               <ul>
                 <li>
-                <Link to="/Tasks">Current tasks</Link>
+                  <Link to="/Tasks">Current tasks</Link>
                 </li>
                 <li>
-                <Link to="/NewTask">Add new task</Link>
+                  <Link to="/NewTask">Add new task</Link>
                 </li>
               </ul>
             </div>
@@ -36,7 +36,7 @@ const Footer = () => {
               <h3>Friends</h3>
               <ul>
                 <li>
-                <Link to="/Friends">See all friends</Link>
+                  <Link to="/Friends">See all friends</Link>
                 </li>
               </ul>
             </div>

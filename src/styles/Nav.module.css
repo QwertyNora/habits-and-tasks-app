@@ -148,6 +148,7 @@ li {
   outline: none;
   border: 2px solid rgb(87, 65, 216);
 }
+
 .mobileHome {
   display: none;
 }
@@ -155,6 +156,7 @@ li {
 .mobileLoginButton {
   display: none;
 }
+
 .mobileSignupButton {
   display: none;
 }
@@ -177,6 +179,7 @@ li {
   .loginButton {
     display: none;
   }
+
   .signupButton {
     display: none;
   }
@@ -185,6 +188,7 @@ li {
     justify-content: center;
     align-items: center;
   }
+
   .mobileSignupButton {
     justify-content: center;
     align-items: center;
@@ -196,7 +200,8 @@ li {
     list-style: none;
     left: 0;
     top: 10%;
-    transition: left 0.5s ease-in; /* Adjusted timing function */
+    transition: left 0.5s ease-in;
+    /* Adjusted timing function */
     width: 100%;
     height: 100%;
     color: white;
