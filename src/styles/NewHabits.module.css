@@ -1,1 +1,69 @@
 @import './Varibles.css';
+
+.habitsWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.habitsText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 60%;
+    margin: 3.5rem;
+    gap: 1rem;
+}
+
+.addDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    margin-bottom: 5rem;
+}
+
+.habitH1 {
+    color: #5841d8;
+    font-size: 4rem;
+    font-family: "Celias-Bold";
+    text-shadow: black;
+}
+
+.inputTitle {
+    margin: 1rem;
+    color: #5841d8;
+    border: 2px solid #5841d8;
+    border-radius: 50px;
+    padding: 10px 25px;
+    background: transparent;
+}
+
+.inputTitle:focus {
+    box-shadow: 2px 2px 15px #5841d892 inset;
+}
+
+.formContainer {
+    display: flex;
+    margin-bottom: 4rem;
+}
+
+.newHabit {
+    padding: 2rem;
+    color: rgb(68, 67, 67);
+    flex-direction: row;
+    border-radius: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.437);
+    background: #fff;
+    box-shadow: 0px 10px 19px -3px rgba(0, 0, 0, 0.1);
+}
+
+.createHabitBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addBtn {
+    font-size: 16px;
+}

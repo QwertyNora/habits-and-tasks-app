@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import { getFromLocalStorage, setInLocalStorage } from "../HelperFunctions";
 import { Link } from "react-router-dom";
 import Styles from "../styles/Habits.module.css";
-import Button from "../styles/Button.module.css"
+import Button from "../styles/Button.module.css";
 
 const Habits = () => {
   const [habits, setHabits] = useState(getFromLocalStorage("habits"));
@@ -148,7 +148,7 @@ const Habits = () => {
         <div className={Styles.habitsContainer}>
           {getSortedHabits().map((habit, index) => (
             <div className={Styles.habit} key={index}>
-              <h2 className={Styles.habitH2} >{habit.title}</h2>
+              <h2 className={Styles.habitH2}>{habit.title}</h2>
               <ul>
                 <li>
                   Priority:
@@ -156,59 +156,40 @@ const Habits = () => {
                 </li>
                 <li>
                   Streak:
-                  <button className={Button.buttonLowKey} onClick={() => decrementStreak(habit.id)}>-</button>
+                  <button
+                    className={Button.buttonLowKey}
+                    onClick={() => decrementStreak(habit.id)}
+                  >
+                    -
+                  </button>
                   {habit.streak}
-                  <button className={Button.buttonLowKey} onClick={() => incrementStreak(habit.id)}>+</button>
-                  <button className={Button.buttonLowKey} onClick={() => resetStreak(habit.id)}>Reset</button>
+                  <button
+                    className={Button.buttonLowKey}
+                    onClick={() => incrementStreak(habit.id)}
+                  >
+                    +
+                  </button>
+                  <button
+                    className={Button.buttonLowKey}
+                    onClick={() => resetStreak(habit.id)}
+                  >
+                    Reset
+                  </button>
                 </li>
               </ul>
             </div>
           ))}
         </div>
       </div>
-      <Link to="/NewHabit">
-        <button>Add New Habit</button>
+      <div className={Styles.addDiv} >
+        <Link to="/NewHabit">
+        <button className={Styles.addBtn}>Add New Habit</button>
       </Link>
+      </div>
+      
       <Footer />
     </>
   );
 };
 
 export default Habits;
-
-// const incrementStreak = (id) => {
-//   const updatedHabits = [...habits];
-//   let index = updatedHabits.findIndex((habit) => habit.id === id);
-//   updatedHabits[index].streak = Number(updatedHabits[index].streak) + 1;
-//   setInLocalStorage("habits", updatedHabits);
-//   setHabits(updatedHabits);
-// };
-
-// const decrementStreak = (id) => {
-//   const updatedHabits = [...habits];
-//   let index = updatedHabits.findIndex((habit) => habit.id === id);
-//   updatedHabits[index].streak = Math.max(0, updatedHabits[index].streak - 1);
-//   setInLocalStorage("habits", updatedHabits);
-//   setHabits(updatedHabits);
-// };
-
-// const resetStreak = (id) => {
-//   const updatedHabits = [...habits];
-//   let index = updatedHabits.findIndex((habit) => habit.id === id);
-//   updatedHabits[index].streak = 0;
-//   setInLocalStorage("habits", updatedHabits);
-//   setHabits(updatedHabits);
-// };
-
-// TO- DO:
-// Hitta iconer till knappar
-// Lägg till en kolumn för "share on socials" kolumn i footer
-// Ta inspo av footern i Kraken
-
-// Google play:
-// https://www.freepik.com/icon/google-play_220782
-// https://www.freepik.com/icon/apple-logo_747#fromView=search&term=apple&track=ais&page=1&position=0&uuid=7239c66b-ebd4-4698-a611-a2ca3025fdd1
-
-// Socials:
-// https://boxicons.com
-// https://boxicons.com/usage
