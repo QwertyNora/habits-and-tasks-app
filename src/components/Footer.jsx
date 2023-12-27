@@ -1,6 +1,8 @@
 import React from "react";
-// import "../styles/Footer.css";
+import { Link } from "react-router-dom";
 import Styles from "../styles/Footer.module.css";
+import { SiLinkedin, SiFacebook, SiGithub, SiTrello } from "react-icons/si";
+// import { SiFacebook } from "react-icons/si";
 
 const Footer = () => {
   return (
@@ -9,30 +11,32 @@ const Footer = () => {
         <div className={Styles.container}>
           <div className={Styles.row}>
             <div className={Styles.footerCol}>
-              <h3>Habit & Tasks</h3>
+              <h3>Habits</h3>
               <ul>
                 <li>
-                  <a href="#">About Us</a>
+                <Link to="/Habits">Current habits</Link>
                 </li>
                 <li>
-                  <a href="#">Our Policys</a>
-                </li>
-                <li>
-                  <a href="#">Our Goals</a>
+                <Link to="/NewHabit">Add new habit</Link>
                 </li>
               </ul>
             </div>
             <div className={Styles.footerCol}>
-              <h3>Customer Service</h3>
+              <h3>Tasks</h3>
               <ul>
                 <li>
-                  <a href="#">Payment</a>
+                <Link to="/Tasks">Current tasks</Link>
                 </li>
                 <li>
-                  <a href="#">Shipping</a>
+                <Link to="/NewTask">Add new task</Link>
                 </li>
+              </ul>
+            </div>
+            <div className={Styles.footerCol}>
+              <h3>Friends</h3>
+              <ul>
                 <li>
-                  <a href="#">Returns</a>
+                <Link to="/Friends">See all friends</Link>
                 </li>
               </ul>
             </div>
@@ -42,13 +46,24 @@ const Footer = () => {
               <div className={Styles.socialLinks}>
                 <ul>
                   <li>
-                    <a href="">Github</a>
+                    <a href="">
+                      <SiGithub /> Github
+                    </a>
+                  </li>
+                  {/* <li>
+                    <a href="">
+                      <SiTrello /> Trello
+                    </a>
+                  </li> */}
+                  <li>
+                    <a href="">
+                      <SiFacebook /> Facebook
+                    </a>
                   </li>
                   <li>
-                    <a href="">Instagram</a>
-                  </li>
-                  <li>
-                    <a href="">LinkedIn</a>
+                    <a href="">
+                      <SiLinkedin /> LinkedIn
+                    </a>
                   </li>
                 </ul>
               </div>
