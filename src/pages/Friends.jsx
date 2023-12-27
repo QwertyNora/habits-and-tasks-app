@@ -132,9 +132,7 @@ const Friends = () => {
       <ul>
         {getFilteredFriends().map((friend, index) => (
           <li key={index} onClick={() => openModal(friend)}>
-            <div className={Styles.iconImg}>
-            <img src={friend.picture.thumbnail} alt="User Thumbnail" />
-            </div>
+            <img src={friend.picture.thumbnail} alt="User Thumbnail" className={Styles.iconImg}/>
             {`${friend.name.first} ${friend.name.last}`}
             <div className={Styles.removeBtn}>
             <button onClick={(event) => removeFriend(index, event)}>
