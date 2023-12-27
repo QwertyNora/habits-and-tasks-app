@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import MyImage1 from "../pics/checklist-monochromatic.svg"
 import MyImage2 from "../pics/information-flow-monochromatic.svg"
 import MyImage3 from "../pics/user-profile-monochromatic.svg"
-import BackGroundImage from "../pics/scrum-board-outline.svg"
+import BackGroundImage from "../pics/undraw_mobile_content_xvgr.svg"
 import { SiApple, SiGoogleplay } from "react-icons/si";
 
 
@@ -37,11 +37,10 @@ const Home = () => {
       <div className={Styles.tasksWrapper}>
       <div className={Styles.contentContainer}>
         <div className={Styles.pText}>
-          <h3>Invest in your habits</h3>
+          <h3>Improve your everyday routine</h3>
           <div className={Styles.textAndImage}>
           <p>
-            Från ett vinterparadis kommer det tre vännerna Victor, Nora och
-            Daniel. 
+          Track  your habits and tasks, share your progress with your friends or team! 
           </p>
           <img src={BackGroundImage} alt="Backgrounds Image"/>
           </div>

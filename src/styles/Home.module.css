@@ -48,12 +48,6 @@ width: 100%;
   justify-content: center;
 }
 
-/* .tasksWrapper {
-  background-image: url(../pics/scrum-board-outline.svg);
-  background-repeat: no-repeat;
-  background-position: right 0px bottom 100px ;
-} */
-
 .gridItem1 img, .gridItem2 img, .gridItem3 img {
   width: 100px;
   height: auto;
@@ -67,22 +61,17 @@ width: 100%;
   justify-content: space-between;
 }
 
-/* .backgroundImage {
-  display: flex;
-  flex-direction: row;
-  align-items: end;
-} */
-
 .textAndImage {
   display: flex;
   flex-direction: row;
   align-items: center; 
   gap: 20px; 
+  
 }
 
 .textAndImage p {
   flex: 1; 
-  margin-right: 20px; 
+  margin-right: 20px;
 }
 
 .textAndImage img {
@@ -91,5 +80,5 @@ width: 100%;
 }
 
 .gridItem3 img{
-  width: 200px;
+  width: 200px; 
 }
