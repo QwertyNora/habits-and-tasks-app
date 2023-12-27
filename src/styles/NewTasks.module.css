@@ -7,22 +7,38 @@
   box-sizing: border-box;
 }
 
-.newTask {
-  padding-top: 2rem;
+.tasksWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tasksText {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
+  max-width: 60%;
+  margin: 3.5rem;
+  height: 200px;
+}
+
+.newTaskH1 {
+  color: #5841d8;
+  font-size: 4rem;
+  font-family: "Celias-Bold";
+  text-shadow: black;
+  padding-bottom: 2px;
 }
 
 .labelContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: antiquewhite; */
-
   width: 100%;
   height: 100%;
   margin: 0%;
+  padding: 2px;
 }
 
 .labelNewTask {
@@ -51,7 +67,7 @@
 }
 
 .inputTitle:active {
-  box-shadow: 2px 2px 15px #8707ff inset;
+  box-shadow: 2px 2px 15px #8707ff3b inset;
 }
 
 .addedTaskContainer {
@@ -86,4 +102,17 @@
   border: 1px solid rgba(255, 255, 255, 0.437);
   background: #fff;
   box-shadow: 0px 10px 19px -3px rgba(0, 0, 0, 0.1);
+}
+
+.imgContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.svgImage {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  z-index: -1;
 }
