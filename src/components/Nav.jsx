@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import { MdOutlineTaskAlt } from "react-icons/md";
 import { CiViewList } from "react-icons/ci";
+import { IoHome } from "react-icons/io5";
 
 const Nav = () => {
   const [mobile, setMobile] = useState(false);
@@ -31,7 +32,7 @@ const Nav = () => {
           >
             <li>
               <Link className={Styles.link} to="/">
-                Home
+              <IoHome /> Home
               </Link>
               <div className={Styles.mobileHome}>
                 <span>ost</span>
@@ -39,20 +40,17 @@ const Nav = () => {
             </li>
             <li>
               <Link className={Styles.link} to="/habits">
-                <CiViewList />
-                Habits
+                <CiViewList /> Habits
               </Link>
             </li>
             <li>
               <Link className={Styles.link} to="/tasks">
-                <MdOutlineTaskAlt />
-                Tasks
+                <MdOutlineTaskAlt /> Tasks
               </Link>
             </li>
             <li>
               <Link className={Styles.link} to="/friends">
-                <FaUserFriends />
-                Friends
+                <FaUserFriends /> Friends
               </Link>
             </li>
           </ul>
