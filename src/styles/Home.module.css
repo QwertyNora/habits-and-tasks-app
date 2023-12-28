@@ -82,3 +82,7 @@ width: 100%;
   max-width: 500px;
   padding-top: 150px;
 }
+
+.headerText {
+  color: #5841d8;
+}
