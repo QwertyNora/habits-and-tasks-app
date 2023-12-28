@@ -43,7 +43,7 @@ const Home = () => {
       <p>Track your habits and tasks, share your progress with your friends or team!</p>
       </div>
       <div>
-        <button onClick={showAlert}><SiApple /> App Store</button>'
+        <button onClick={showAlert}><SiApple /> App Store</button>
         <button onClick={showAlert}><SiGoogleplay /> Google Play</button>
       </div>
     </div>
