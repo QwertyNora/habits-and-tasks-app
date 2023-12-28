@@ -1,4 +1,4 @@
-@import './Varibles.css';
+@import "./Varibles.css";
 
 
 /*This part is for the toplist part of the page*/
@@ -9,7 +9,9 @@
   grid-template-rows: repeat(1, 1fr);
 }
 
-.gridItem1, .gridItem2, .gridItem3 {
+.gridItem1,
+.gridItem2,
+.gridItem3 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,22 +20,28 @@
   border-radius: 7px;
   border: 1px solid rgba(255, 255, 255, 0.437);
   background: #fff;
-  box-shadow: 0px 10px 19px -3px rgba(0,0,0,0.1);
+  box-shadow: 0px 10px 19px -3px rgba(0, 0, 0, 0.1);
   margin: 50px;
 }
 
-.gridItem1 ul, .gridItem2 ul, .gridItem3 ul {
-display: flex;
-flex-direction: column;
-width: 100%;
+.gridItem1 ul,
+.gridItem2 ul,
+.gridItem3 ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
-.gridItem1 li, .gridItem2 li, .gridItem3 li {
+.gridItem1 li,
+.gridItem2 li,
+.gridItem3 li {
   display: flex;
   justify-content: center;
 }
 
-.gridItem1 img, .gridItem2 img, .gridItem3 img {
+.gridItem1 img,
+.gridItem2 img,
+.gridItem3 img {
   width: 100px;
   height: auto;
   margin-left: 20px;
@@ -58,8 +66,29 @@ width: 100%;
 
 .contentContainer {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.textAndImage p {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.textAndImage img {
+  width: auto;
+  height: 400px;
+}
+
+.gridItem3 img {
+  width: 200px;
+}
+  
+.listImageWrapper {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center; 
 }
 
 .textContainer {
@@ -84,5 +113,6 @@ width: 100%;
   max-width: 500px;
   padding-top: 150px;
 }
+
 
 
