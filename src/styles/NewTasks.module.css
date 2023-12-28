@@ -57,6 +57,8 @@
   justify-content: center;
   align-items: center;
   margin: 1rem;
+  font-size: 1.5rem;
+  color: black;
 }
 
 .btnContainer {
@@ -119,4 +121,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.input {
+  color: black;
+  font-size: 1.5;
 }

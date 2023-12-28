@@ -19,6 +19,10 @@ const Nav = () => {
     setMobile(!mobile);
   };
 
+  const showAlert = () => {
+    alert("We are still workin on this feature");
+  };
+
   return (
     <>
       <nav className={Styles.navbar}>
@@ -54,8 +58,8 @@ const Nav = () => {
               </Link>
             </li>
           </ul>
-          <button className={Styles.mobileLoginButton}>Log in</button>
-          <button className={Styles.mobileSignupButton}>Sign up</button>
+          <button onClick={showAlert} className={Styles.mobileLoginButton}>Log in</button>
+          <button onClick={showAlert} className={Styles.mobileSignupButton}>Sign up</button>
 
           <button
             id="hamburger-menu"
@@ -68,8 +72,8 @@ const Nav = () => {
               <IoMenuOutline size={42} color="white" />
             )}
           </button>
-          <button className={Styles.loginButton}>Log in</button>
-          <button className={Styles.signupButton}>Sign up</button>
+          <button onClick={showAlert} className={Styles.loginButton}>Log in</button>
+          <button onClick={showAlert} className={Styles.signupButton}>Sign up</button>
         </div>
       </nav>
     </>

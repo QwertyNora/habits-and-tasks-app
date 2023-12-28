@@ -8,6 +8,10 @@
   background-size: 50%;
 }
 
+.friendsWrapper ul li {
+  cursor: pointer;
+}
+
 .modal {
   position: fixed;
   left: 0;
@@ -93,3 +97,5 @@
   object-fit: cover;
   border: 1px solid black;
 }
+
+
