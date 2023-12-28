@@ -1,22 +1,7 @@
-@import './Varibles.css';
+@import "./Varibles.css";
 
-.pText {
-  font-size: 25px;
-  margin-top: 15px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding-top: 100px;
-  padding-left: 200px;
-  margin-right: 800px;
-  padding-bottom: 150px;
-}
 
-.contentContainer {
-  display: flex;
-  justify-content: space-between;
-  gap: 50px;
-}
+/*This part is for the toplist part of the page*/
 
 .gridContainer {
   display: grid;
@@ -63,18 +48,27 @@
   margin-top: 15px;
 }
 
+.gridItem3 img{
+  width: 200px; 
+}
+
 .listImageWrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.textAndImage {
+
+
+
+
+/*This part is for the main part of the page*/
+
+.contentContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 20px;
-
 }
 
 .textAndImage p {
@@ -89,4 +83,33 @@
 
 .gridItem3 img {
   width: 200px;
+}
+  
+.listImageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.textContainer {
+  flex: 1;
+  font-size: 25px;
+  margin-top: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-left: 200px;
+}
+
+.imageContainer {
+  flex: 1;
+  max-width: 800px;
+  align-self: center;
+}
+
+.imageContainer img {
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  padding-top: 150px;
 }
