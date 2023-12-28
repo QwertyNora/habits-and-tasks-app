@@ -38,12 +38,12 @@ const Home = () => {
       <Header />
       <div className={Styles.contentContainer}>
     <div className={Styles.textContainer}>
-      <h3>Improve your everyday routine</h3>
+      <h3 className={Styles.headerText}>Improve your everyday routine</h3>
       <div className={Styles.pText}>
       <p>Track your habits and tasks, share your progress with your friends or team!</p>
       </div>
       <div>
-        <button onClick={showAlert}><SiApple /> App Store</button>'
+        <button onClick={showAlert}><SiApple /> App Store</button>
         <button onClick={showAlert}><SiGoogleplay /> Google Play</button>
       </div>
     </div>
