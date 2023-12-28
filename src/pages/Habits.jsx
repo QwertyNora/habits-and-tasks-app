@@ -100,9 +100,6 @@ const Habits = () => {
             to date and edit your streak!{" "}
           </p>
         </div>
-        {/* <div className={Styles.filterText}>
-          <h3>Filter or sort your habits:</h3>
-        </div> */}
         <div className={Styles.selectContainer}>
           <div>
             <label htmlFor="filterPriority">Filter by Priority:</label>

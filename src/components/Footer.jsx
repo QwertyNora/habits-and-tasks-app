@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Styles from "../styles/Footer.module.css";
-import { SiLinkedin, SiFacebook, SiGithub, SiTrello } from "react-icons/si";
-// import { SiFacebook } from "react-icons/si";
+import { SiLinkedin, SiFacebook, SiGithub } from "react-icons/si";
 
 const Footer = () => {
   return (
@@ -40,7 +39,6 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-
             <div className={Styles.footerCol}>
               <h3>Follow us</h3>
               <div className={Styles.socialLinks}>
@@ -50,11 +48,7 @@ const Footer = () => {
                       <SiGithub /> Github
                     </a>
                   </li>
-                  {/* <li>
-                    <a href="">
-                      <SiTrello /> Trello
-                    </a>
-                  </li> */}
+
                   <li>
                     <a href="">
                       <SiFacebook /> Facebook
