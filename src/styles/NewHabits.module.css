@@ -1,16 +1,13 @@
 @import './Varibles.css';
 
 
-/* body {
-    background-image: url(../pics/undraw_team_up_re_84ok.svg);
-    background-repeat: no-repeat;
-    background-position: right 0.5rem bottom 200px;
-} */
-
 .habitsWrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-image: url(../pics/information-flow-monochromatic.svg);
+    background-repeat: no-repeat;
+    background-position: bottom right;
 }
 
 .habitsText {
