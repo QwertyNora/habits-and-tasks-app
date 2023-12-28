@@ -33,7 +33,6 @@ const NewTask = () => {
     setTasks(updatedTasks);
     setLatestTask(newTask);
 
-    // Uppdatera state och localStorage
     setTasks(updatedTasks);
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
 
