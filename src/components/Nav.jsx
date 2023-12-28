@@ -23,7 +23,7 @@ const Nav = () => {
     <>
       <nav className={Styles.navbar}>
         <div className={Styles.container}>
-          <h1 className={Styles.logo}>FragmentFriends</h1>
+          <h1 className={Styles.logo}>ProgressPilot</h1>
 
           <ul
             className={
@@ -32,7 +32,7 @@ const Nav = () => {
           >
             <li>
               <Link className={Styles.link} to="/">
-              <IoHome /> Home
+                <IoHome /> Home
               </Link>
               <div className={Styles.mobileHome}>
                 <span>ost</span>

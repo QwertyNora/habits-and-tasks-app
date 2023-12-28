@@ -100,69 +100,76 @@ const Friends = () => {
   return (
     <>
       <Nav />
-      <div className={Styles.gridContainer}>
-      <div className={Styles.girdItem2}>
-      <h1>Friends</h1>
-      </div>
-      <div className={Styles.girdItem3}>
-        <select onChange={handleGenderFilterChange}>
-          <option value="">Gender:</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
-        <select onChange={handleMaxAgeChange} value={maxAge}>
-          <option value="">Max Age</option>
-          {generateAgeOptions(1, 100)}
-        </select>
-        <select onChange={handleMinAgeChange} value={minAge}>
-          <option value="">Min Age</option>
-          {generateAgeOptions(1, 100)}
-        </select>
-        <select onChange={handleSortChange}>
-          <option value="">Sort by:</option>
-          <option value="age">Age</option>
-          <option value="firstName">First Name</option>
-          <option value="lastName">Last Name</option>
-        </select>
-      </div>
-      <div className={Styles.girdItem1}>
-        <div className={Styles.addFriends}>
-      <button onClick={addFriend}>Add new friend</button>
-      </div>
-      <ul>
-        {getFilteredFriends().map((friend, index) => (
-          <li key={index} onClick={() => openModal(friend)}>
-            <img src={friend.picture.thumbnail} alt="User Thumbnail" className={Styles.iconImg}/>
-            {`${friend.name.first} ${friend.name.last}`}
-            <div className={Styles.removeBtn}>
-            <button onClick={(event) => removeFriend(index, event)}>
-              Remove friend
-            </button>
+      <div className={Styles.friendsWrapper}>
+        <div className={Styles.gridContainer}>
+          <div className={Styles.girdItem2}>
+            <h1>Friends</h1>
+          </div>
+          <div className={Styles.girdItem3}>
+            <select onChange={handleGenderFilterChange}>
+              <option value="">Gender:</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+            <select onChange={handleMaxAgeChange} value={maxAge}>
+              <option value="">Max Age</option>
+              {generateAgeOptions(1, 100)}
+            </select>
+            <select onChange={handleMinAgeChange} value={minAge}>
+              <option value="">Min Age</option>
+              {generateAgeOptions(1, 100)}
+            </select>
+            <select onChange={handleSortChange}>
+              <option value="">Sort by:</option>
+              <option value="age">Age</option>
+              <option value="firstName">First Name</option>
+              <option value="lastName">Last Name</option>
+            </select>
+          </div>
+          <div className={Styles.girdItem1}>
+            <div className={Styles.addFriends}>
+              <button onClick={addFriend}>Add new friend</button>
             </div>
-          </li>
-        ))}
-      </ul>
-      </div>
-      </div>
-      {isModalOpen && (
-        <div className={Styles.modal}>
-          <div className={Styles.modalcontent}>
-            <span className={Styles.close} onClick={closeModal}>
-              &times;
-            </span>
-            <img
-              src={selectedFriend.picture.large}
-              alt={`${selectedFriend.name.first} ${selectedFriend.name.last}`}
-            />
-            <h2>{`${selectedFriend.name.first} ${selectedFriend.name.last}`}</h2>
-            <p>Email: {selectedFriend.email}</p>
-            <p>Gender: {selectedFriend.gender}</p>
-            <p>
-              Birthday: {new Date(selectedFriend.dob.date).toLocaleDateString()}
-            </p>
+            <ul>
+              {getFilteredFriends().map((friend, index) => (
+                <li key={index} onClick={() => openModal(friend)}>
+                  <img
+                    src={friend.picture.thumbnail}
+                    alt="User Thumbnail"
+                    className={Styles.iconImg}
+                  />
+                  {`${friend.name.first} ${friend.name.last}`}
+                  <div className={Styles.removeBtn}>
+                    <button onClick={(event) => removeFriend(index, event)}>
+                      Remove friend
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      )}
+        {isModalOpen && (
+          <div className={Styles.modal}>
+            <div className={Styles.modalcontent}>
+              <span className={Styles.close} onClick={closeModal}>
+                &times;
+              </span>
+              <img
+                src={selectedFriend.picture.large}
+                alt={`${selectedFriend.name.first} ${selectedFriend.name.last}`}
+              />
+              <h2>{`${selectedFriend.name.first} ${selectedFriend.name.last}`}</h2>
+              <p>Email: {selectedFriend.email}</p>
+              <p>Gender: {selectedFriend.gender}</p>
+              <p>
+                Birthday:{" "}
+                {new Date(selectedFriend.dob.date).toLocaleDateString()}
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
       <Footer />
     </>
   );
