@@ -9,6 +9,10 @@ const Tasks = () => {
   const [filteredTasks, setFilteredTasks] = useState([]); // Uppgifter efter filtrering
   const [selectedTaskType, setSelectedTaskType] = useState("All"); // Den valda uppgiftstypen för filtrering
   const [editingTaskIndex, setEditingTaskIndex] = useState(null); // Index för att redigera en uppgift
+  const [showCompleted, setShowCompleted] = useState(false);
+  const [completedTasks, setCompletedTasks] = useState([]); // Lägg till detta
+  const [filterCompleted, setFilterCompleted] = useState(false);
+
   const [editedTask, setEditedTask] = useState({
     title: "",
     taskType: "",
@@ -20,7 +24,10 @@ const Tasks = () => {
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
     setTasks(storedTasks);
-    setFilteredTasks(storedTasks);
+    // Filtrera slutförda uppgifter från alla uppgifter
+    const completed = storedTasks.filter((task) => task.completed);
+    setCompletedTasks(completed);
+    filterTasks(selectedTaskType, completed);
   }, []);
 
   useEffect(() => {
@@ -30,21 +37,25 @@ const Tasks = () => {
   // useEffect för att uppdatera 'tasks' och 'filteredTasks' när det finns förändringar i 'tasks', 'selectedTaskType' eller 'sortOrder'
   //
   const handleTaskCompleteToggle = (index) => {
-    // Skapar en kopia av den aktuella listan med uppgifter
     const updatedTasks = [...tasks];
-    // Inverterar statusen för 'completed' för den specifika uppgiften
     updatedTasks[index].completed = !updatedTasks[index].completed;
-    // Uppdaterar tillståndet 'tasks' med den nya listan av uppgifter
+
+    // Uppdatera completedTasks based på ändringar
+    const updatedCompletedTasks = updatedTasks.filter((task) => task.completed);
+    setCompletedTasks(updatedCompletedTasks);
+
+    // Uppdatera tasks och spara i localStorage
     setTasks(updatedTasks);
-    // Sparar den uppdaterade listan av uppgifter till localStorage
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
-    // Filtrerar och uppdaterar listan av uppgifter baserat på den valda uppgiftstypen
-    filterTasks(selectedTaskType);
+
+    filterTasks(selectedTaskType, updatedCompletedTasks);
   };
 
   const filterTasks = (taskType) => {
     let filtered =
-      taskType === "All"
+      taskType === "completed"
+        ? tasks.filter((task) => task.completed)
+        : taskType === "All"
         ? tasks
         : tasks.filter((task) => task.taskType === taskType);
 
@@ -70,6 +81,7 @@ const Tasks = () => {
 
   const handleTaskTypeChange = (e) => {
     const selectedType = e.target.value;
+    setFilterCompleted(selectedType === "completed");
     setSelectedTaskType(selectedType);
   };
 
@@ -135,8 +147,11 @@ const Tasks = () => {
               >
                 <option value="All">All</option>
                 <option value="work related">Work related</option>
-                <option value="For fun">For fun</option>
+                <option value="for fun">For fun</option>
                 <option value="Chores">Chores</option>
+                <option value="completed" selected={filterCompleted}>
+                  Completed Tasks
+                </option>
               </select>
             </div>
           </label>
@@ -199,8 +214,10 @@ const Tasks = () => {
                     </div>
                     <div className={styles.taskActions}>
                       <input
-                        type="checkbox"
-                        value={task.completed}
+                        type="radio"
+                        name={`complete-task-${index}`} // Unikt namn för varje radioknapp
+                        value={index}
+                        checked={task.completed}
                         onChange={() => handleTaskCompleteToggle(index)}
                       />{" "}
                       Complete task
